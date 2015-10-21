@@ -15,6 +15,8 @@ var app = express();
 
 // view engine setup
 app.set("root", path.join(__dirname, ''));
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.set('views', path.join(__dirname, 'public/views'));
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
@@ -25,7 +27,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 
@@ -146,21 +148,6 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 module.exports = app;
