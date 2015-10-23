@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "grunt-babel": "^5.0.3",
+    "grunt-browserify": "^4.0.1",
     "grunt-contrib-concat": "^0.5.1",
     "grunt-contrib-copy": "^0.8.0",
     "grunt-contrib-cssmin": "^0.12.3",
@@ -28,6 +29,12 @@
     "grunt-jsbeautifier": "^0.2.10",
     "grunt-jscs": "^2.1.0",
     "grunt-react": "^0.12.2",
-    "grunt-template-jasmine-requirejs": "^0.2.3"
+    "grunt-template-jasmine-requirejs": "^0.2.3",
+    "is-finite": "^1.0.1",
+    "left-pad": "0.0.4",
+    "lodash": "^3.10.1",
+    "semver": "^5.0.3",
+    "senver": "0.0.0",
+    "underscore.string": "^3.2.2"
   }
 }

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../../../public/js/services/serviceLoader.js"],"names":[],"mappings":";;AAAA,MAAM,CAAC,CACP,sBAAsB,EACtB,0BAA0B,CACzB,EAAC,YAAU,EACX,CAAC,CAAC","file":"serviceLoader.js","sourcesContent":["define([\r\n\"services/listService\",\r\n\"services/registerService\"\r\n],function(){\r\n});"]}

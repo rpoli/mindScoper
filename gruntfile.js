@@ -1,4 +1,6 @@
 module.exports = function (grunt) {
+
+
   grunt.initConfig({
     jsDir: 'public/js/',
     cssDir: 'public/css/',
@@ -95,10 +97,6 @@ module.exports = function (grunt) {
         "requireSpaceAfterComma": true
       }
     },
-    "jsbeautifier": {
-      files: ["public/js/**/*.js"],
-      options: {}
-    },
     requirejs: {
       compile: {
         options: {
@@ -116,15 +114,19 @@ module.exports = function (grunt) {
         }
       }
     },
-    babel: {
-      options: {
-        sourceMap: true
-      },
-      dist: {
-        files: {
-          'dist/app.js': 'src/app.js'
+    "babel": {
+        "options": {
+            "sourceMap": true,
+            "experimental": true,
+        },
+        dist: {
+            files: [{
+                "expand": true,                
+                "src": ["public/js/*.js","public/js/**/*.js"],
+                "dest": "build/",
+                "ext": ".js"
+            }]
         }
-      }
     },
 
     watch: {
@@ -132,7 +134,8 @@ module.exports = function (grunt) {
       tasks: ['sass']
     }
   });
-
+  
+   //grunt.loadNpmTasks('grunt-babel');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -143,8 +146,11 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.registerTask("optimize", ["requirejs"]);
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks("grunt-jscs");
+  //grunt.loadNpmTasks("grunt-jscs");
   grunt.loadNpmTasks("grunt-jsbeautifier");
+
+  grunt.loadNpmTasks('grunt-babel');
+  grunt.loadNpmTasks('grunt-browserify');
   // Default task(s).
-  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('default', ['babel']);
 };
