@@ -130,6 +130,13 @@ module.exports = function (grunt) {
         }
     },
 
+    browserify: {
+      main: {
+        src: 'public/build/js/main.js',
+        dest: 'public/build/js/app.js'
+      }
+    },
+
     watch: {
       files: ['<%=jsDir%>*.js', '<%=scssDir%>/**/*.scss'],
       tasks: ['sass']
@@ -153,5 +160,5 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-babel');
   grunt.loadNpmTasks('grunt-browserify');
   // Default task(s).
-  grunt.registerTask('default', ['babel']);
+  grunt.registerTask('default', ['babel','browserify']);
 };

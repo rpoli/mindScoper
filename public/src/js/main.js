@@ -1,6 +1,6 @@
- 
-import React from 'react';
-import HelloWorld from '../footer/footer';
+
+import React from './lib/react/react';
+import HelloWorld from './components/footer/footer';
  
 React.render(
   <HelloWorld />,
