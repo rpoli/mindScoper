@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../../../../../public/js/services/registerService.js"],"names":[],"mappings":";AACA,YAAY,CAAC;;AAEb,MAAM,CAAC,CAAC,wBAAwB,CAAC,EAAE,UAAU,aAAa,EAAE,EAG3D,CAAC,CAAC","file":"registerService.js","sourcesContent":["\r\n'use strict';\r\n\r\ndefine(['services/serviceModule'], function (serviceModule) {\r\n\r\n\r\n});\r\n\r\n"]}

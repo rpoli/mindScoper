@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../../../../../public/js/services/serviceModule.js"],"names":[],"mappings":";;AAAA,MAAM,CAAC,CAAC,SAAS,CAAC,EAAC,UAAS,OAAO,EAAC;AACnC,QAAO,OAAO,CAAC,MAAM,CAAC,eAAe,EAAC,EAAE,CAAC,CAAC;CAE1C,CAAC,CAAC","file":"serviceModule.js","sourcesContent":["define([\"angular\"],function(angular){\r\n\treturn angular.module(\"serviceModule\",[]);\r\n\r\n});"]}
