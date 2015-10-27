@@ -23,7 +23,83 @@
 			color: #f7ab24
 		}
 
-
-
 	}
+}
+
+.container-fluid .row{
+	margin:0;
+}
+
+.total-score{
+ background-color: rgba(13, 22, 27, 0.9);
+ border: 2px solid #007cbf;
+ border-radius: 64px;
+ height: 120px;
+ padding: 13px 0;
+ text-align: center;
+ span{
+ 	color: #dae8e9;
+  font-size: 65px;
+ }
+}
+
+
+.user-settings div{
+	color: #DAE8E9;
+}
+
+
+.q-div{
+  background: rgba(13, 22, 27, 0.8) none repeat scroll 0 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 19px;
+  height: 200px;
+  margin: 25px 15px 15px 0 !important;
+  font-size: 30px;
+  color: #DAE8E9;
+}
+
+.option-div {
+   background: rgba(13, 22, 27, 0.8) none repeat scroll 0 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 60px 10px 10px 60px;
+    color: #dae8e9;
+    height: 100px;
+    margin-top: 30px;
+    padding: 0;
+    width: 45%;
+}
+
+.right{
+	float: right;
+}
+
+
+.q-serial{
+   border-right: 1px solid rgba(255, 255, 255, 0.2);
+    color: #007cc2;
+    font-size: 100px;
+    font-weight: 200;
+    height: 198px;
+    padding: 23px 0;
+    text-align: center;
+}
+
+.q-text{
+			padding: 35px;
+			height: 199px;
+}
+
+.option-serial{
+	padding-top:25px;
+	text-align: center;
+	height: 98px;
+	border-right: 1px solid rgba(255, 255, 255, 0.2);
+	color: #007cc2;
+ font-size: 30px;
+}
+
+.option-text{
+		padding:20px;
+		height: 98px;
 }
