@@ -1,5 +1,24 @@
-#appHeader, #appSection, #appFooter{
-	max-width:1000px;
-	margin: 0 auto;
+
+
+
+body {
+	background: url('/src/images/slider/bg1.jpg') no-repeat;
 }
 
+#appHeader {
+	height: 200px;	
+}
+
+#appSection {
+	height: 650px
+}
+
+#appFooter{
+	height: 300px;
+	background-color: #0A1318
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}

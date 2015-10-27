@@ -1,0 +1,29 @@
+.score-board {
+	background-color: rgba(13,22,27,0.4);
+	height: 550px;
+
+}
+
+.score-board-header {
+	h1{
+		color: #007CC2;
+		font-weight: 200;
+		font-size: 56px;
+	}
+}
+
+.score-list ul{
+	list-style: none;
+	li{
+		color: #bababa;
+		height: 35px;
+		padding-top:8px;
+
+		&.active-score{
+			color: #f7ab24
+		}
+
+
+
+	}
+}

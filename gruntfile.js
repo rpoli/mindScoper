@@ -4,8 +4,8 @@ module.exports = function (grunt) {
   grunt.initConfig({
     jsDir: 'public/js/',
     cssDir: 'public/css/',
-    scssDir: 'public/scss/',
-    cssDistDir: 'public/dist/css/',
+    scssDir: 'public/src/scss/',
+    cssDistDir: 'public/src/css/',
     pkg: grunt.file.readJSON('package.json'),
     jasmine: {
       js: {
@@ -40,9 +40,9 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: 'public/scss',
+          cwd: 'public/src/scss',
           src: ['*.scss', '**/*.scss'],
-          dest: 'public/css',
+          dest: 'public/src/css',
           ext: '.css'
         }]
 
