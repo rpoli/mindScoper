@@ -68,6 +68,9 @@
     margin-top: 30px;
     padding: 0;
     width: 45%;
+    &.right{
+    	margin-right: 15px;
+    }
 }
 
 .right{
@@ -102,4 +105,17 @@
 .option-text{
 		padding:20px;
 		height: 98px;
+}
+
+.user-controls.row{
+	margin-top: 50px;
+}
+
+.evn-btn {
+	width: 165px;
+	color: #fff;
+}
+
+.prev-btn, .next-btn{
+	top: 2px;
 }

@@ -10857,7 +10857,7 @@ button.close {
 
 /* line 4, ../scss/components/_layout.scss */
 body {
-  background: url("/src/images/slider/bg1.jpg") no-repeat;
+  background: url("/src/images/slider/bg7.jpg") no-repeat;
 }
 
 /* line 8, ../scss/components/_layout.scss */
@@ -10957,13 +10957,17 @@ body {
   padding: 0;
   width: 45%;
 }
+/* line 71, ../scss/components/_scoreboard.scss */
+.option-div.right {
+  margin-right: 15px;
+}
 
-/* line 73, ../scss/components/_scoreboard.scss */
+/* line 76, ../scss/components/_scoreboard.scss */
 .right {
   float: right;
 }
 
-/* line 78, ../scss/components/_scoreboard.scss */
+/* line 81, ../scss/components/_scoreboard.scss */
 .q-serial {
   border-right: 1px solid rgba(255, 255, 255, 0.2);
   color: #007cc2;
@@ -10974,13 +10978,13 @@ body {
   text-align: center;
 }
 
-/* line 88, ../scss/components/_scoreboard.scss */
+/* line 91, ../scss/components/_scoreboard.scss */
 .q-text {
   padding: 35px;
   height: 199px;
 }
 
-/* line 93, ../scss/components/_scoreboard.scss */
+/* line 96, ../scss/components/_scoreboard.scss */
 .option-serial {
   padding-top: 25px;
   text-align: center;
@@ -10990,10 +10994,26 @@ body {
   font-size: 30px;
 }
 
-/* line 102, ../scss/components/_scoreboard.scss */
+/* line 105, ../scss/components/_scoreboard.scss */
 .option-text {
   padding: 20px;
   height: 98px;
+}
+
+/* line 110, ../scss/components/_scoreboard.scss */
+.user-controls.row {
+  margin-top: 50px;
+}
+
+/* line 114, ../scss/components/_scoreboard.scss */
+.evn-btn {
+  width: 165px;
+  color: #fff;
+}
+
+/* line 119, ../scss/components/_scoreboard.scss */
+.prev-btn, .next-btn {
+  top: 2px;
 }
 
 /*************************
