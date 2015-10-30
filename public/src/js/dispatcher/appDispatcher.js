@@ -1,7 +1,7 @@
-var Dispatcher = require('./Dispatcher');
+var Dispatcher = require('flux').Dispatcher;
 var assign = require('object-assign');
 
-var AppDispatcher = assign({}, Dispatcher.prototype, {
+let AppDispatcher = assign({}, Dispatcher.prototype, {
 
   /**
    * A bridge function between the views and the dispatcher, marking the action

@@ -1,5 +1,5 @@
 var React = require('react');
-var appStore = require('../stores/appStore');
+var appStore = require('../stores/AppStore');
 
 function getInitialAppData() {
   return {

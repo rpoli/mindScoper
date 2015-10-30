@@ -1,8 +1,9 @@
-var AppDispatcher = require('../dispatcher/AppDispatcher');
-var EventEmitter = require('events').EventEmitter;
-var TodoConstants = require('../constants/TodoConstants');
-var assign = require('object-assign');
 
+import AppDispatcher from '../dispatcher/AppDispatcher';
+import AppConstants from '../constants/AppConstants';
+
+var EventEmitter = require('events').EventEmitter;
+var assign = require('object-assign');
 var CHANGE_EVENT = 'change';
 
 var _todos = {}; // collection of todo items
@@ -29,7 +30,7 @@ function destroy(id) {
   delete _todos[id];
 }
 
-var TodoStore = assign({}, EventEmitter.prototype, {
+var AppStore = assign({}, EventEmitter.prototype, {
 
   /**
    * Get the entire collection of TODOs.
@@ -56,6 +57,8 @@ var TodoStore = assign({}, EventEmitter.prototype, {
   removeChangeListener: function(callback) {
     this.removeListener(CHANGE_EVENT, callback);
   },
+
+ 
 
   dispatcherIndex: AppDispatcher.register(function(payload) {
     var action = payload.action;
