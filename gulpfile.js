@@ -1,6 +1,9 @@
 //*********** IMPORTS *****************
 var gulp = require('gulp');
 var sass = require('gulp-ruby-sass');
+var minifycss=require('gulp-minify-css');
+var cssBase64 = require('gulp-css-base64');
+var base64 = require('gulp-base64');
 var gutil = require('gulp-util');
 var rename = require("gulp-rename");
 var map = require("map-stream");
@@ -8,15 +11,18 @@ var livereload = require("gulp-livereload");
 var concat = require("gulp-concat");
 var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
+var gulpIgnore = require('gulp-ignore');
+
 global.errorMessage = '';
 
 //Configuration - Change me
 var sassFiles = [
 	{
 		watch: 'public/src/scss/**/*.scss',
-		sass: 'public/src/scss/app-main.scss',
-		output: 'public/src/css',
+		sass: ['public/src/scss/app-main.scss','public/src/scss/webfonts/**.scss'],
+		output: 'public/src/css/',
 		name: 'app-main.css',
+		excludedFiles: 'public/src/css/webfonts/**.scss'
 	}
 ];
 var jsFiles = [
@@ -35,7 +41,6 @@ var jsFiles = [
 ];
 //END configuration
 
-
 var sassOptions = {
 	'style': 'compressed',
 	'unixNewlines': true,
@@ -44,12 +49,39 @@ var sassOptions = {
 
 
 
-gulp.task('sass', function () {
-  gulp.src('./sass/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./css'));
+//gulp.task('sass', function () {
+//  gulp.src('./sass/**/*.scss')
+//   .pipe(sass().on('error', sass.logError))
+//  .pipe(gulp.dest('./css'));
+// });
+ 
+// gulp.task('sass:watch', function () {
+//   gulp.watch('./sass/**/*.scss', ['sass']);
+// });
+
+gulp.task('sass', function() {
+  return sass(sassFiles[0].sass,{ style: 'expanded' })
+    .pipe(gulp.dest(sassFiles[0].output))
+    .pipe(cssBase64({
+    	maxWeightResource: 1000000
+    }))
+    .pipe(gulp.dest(sassFiles[0].output))
+    .pipe(gulpIgnore.exclude(sassFiles[0].excludedFiles))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(minifycss())
+    .pipe(minifycss())
+    .pipe(gulp.dest(sassFiles[0].output+"/min"));
+});
+
+
+gulp.task('compressme', function () {
+    return gulp.src(sassFiles[0].output+sassFiles[0].name)
+        .pipe(cssBase64())
+        .pipe(gulp.dest(sassFiles[0].output));
 });
  
-gulp.task('sass:watch', function () {
-  gulp.watch('./sass/**/*.scss', ['sass']);
+gulp.task('build', function () {
+    return gulp.src(sassFiles[0].output+sassFiles[0].name)
+        .pipe(base64())        
+        .pipe(gulp.dest('dist'));
 });
