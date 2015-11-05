@@ -17,19 +17,16 @@ var gulpIgnore = require('gulp-ignore');
 var concatCss = require('gulp-concat-css');
 var gulpCopy = require('gulp-copy');
 var autoprefixer = require('gulp-autoprefixer');
-var browserSync = require('browser-sync').create();
+var connect = require('gulp-connect');
+var clean = require('gulp-clean');
+
+/*This is intended to be a temporary solution until the release of gulp 4.0 
+which has support for defining task dependencies in series or in parallel.*/
+
+var runSequence = require('run-sequence');
 
 
-gulp.task('browser-sync', function() {
-    browserSync.init({
-        // server: {
-        //     baseDir: "./public",
-        //     index: "./views/layouts/index.html"
-        // },
-        proxy: "localhost:3000",
-        port: 8888
-    });
-});
+
 
 
 global.errorMessage = '';
@@ -45,76 +42,82 @@ var getStamp = function() {
   return stampFullDate;
 };
 
-//Configuration - Change me
-var sassFiles = [{
+
+
+var sassConfig = [{
   watch: 'public/src/scss/**/*.scss',
-  sass: ['public/src/scss/app-main.scss', 'public/src/scss/webfonts/**.scss'],
-  output: 'public/src/css/',
+  paths: ['public/src/scss/app-main.scss', 'public/src/scss/webfonts/**.scss'],
+  output: 'public/dist/css/',
   name: 'app-main.css',
-  excludedFiles: 'public/src/css/webfonts/**.scss'
+  excludedFiles: 'public/src/css/webfonts/**.scss',
+  compileOptions : {
+    'style': 'compressed',
+    'unixNewlines': true,
+    'cacheLocation': '_scss/.sass_cache'
+  }
 }];
 
 
-var jsFiles = [{
-  watch: '_assets/admin/*.js',
-  output: './www/app/View/Themed/Admin/webroot/js/',
-  name: 'admin.js',
-  nameMin: 'admin.min.js'
-}, {
-  watch: 'html/js/*.js',
-  output: './www/app/View/Themed/Site/webroot/js/',
-  name: 'site.js',
-  nameMin: 'site.min.js'
-}];
-//END configuration
-
-var sassOptions = {
-  'style': 'compressed',
-  'unixNewlines': true,
-  'cacheLocation': '_scss/.sass_cache'
+var filePaths = {
+ src: 'public/src',
+ dist: 'public/dist/',
+ js: ['scripts/**/*.js', '!scripts/libs/**/*.js'],
+ libs: ['scripts/libs/jquery/dist/jquery.js', 'scripts/libs/underscore/underscore.js', 'scripts/backbone/backbone.js'],
+ styles: ['styles/**/*.css'],
+ views: "public/src/views/**/**.html",
+ viewsTarget : "public/dist/views/",
+ images: "public/src/images/**/**",
+ imagesTarget:"public/dist/images/",
+ fonts : "public/src/fonts/**/**",
+ fontsTarget :"public/dist/fonts/",
+ extras: ['crossdomain.xml', 'humans.txt', 'manifest.appcache', 'robots.txt', 'favicon.ico']
 };
 
 
 
-//gulp.task('sass', function () {
-//  gulp.src('./sass/**/*.scss')
-//   .pipe(sass().on('error', sass.logError))
-//  .pipe(gulp.dest('./css'));
-// });
 
-// gulp.task('sass:watch', function () {
-//   gulp.watch('./sass/**/*.scss', ['sass']);
-// });
+gulp.task('clean', function() {
+ return gulp.src(filePaths.dist)
+ .pipe(clean());
+});
 
 
+gulp.task("copysource",["clean"],function(){
+  
+  gulp.src(filePaths.views)
+  .pipe(gulp.dest(filePaths.viewsTarget));
+  gulp.src(filePaths.images)
+  .pipe(gulp.dest(filePaths.imagesTarget));
+  gulp.src(filePaths.fonts)
+  .pipe(gulp.dest(filePaths.fontsTarget));
 
-gulp.task('sass', function() {
-  return sass(sassFiles[0].sass, {
-      style: 'expanded'
-    })
-    .pipe(gulp.dest(sassFiles[0].output))
+})
+
+gulp.task('connectDev',["clean"], function () {
+  connect.server({    
+    port: 8000,
+    livereload: true
+  });
+});
+
+
+
+gulp.task('sass',["clean"], function() {
+  return sass(sassConfig[0].paths, sassConfig[0].compileOptions)    
     .pipe(cssBase64({
       maxWeightResource: 1000000
     }))
-    .pipe(gulp.dest(sassFiles[0].output))
-    .pipe(gulpIgnore.exclude(sassFiles[0].excludedFiles))
+    .pipe(concatCss("app-main.css"))
+    .pipe(gulp.dest(sassConfig[0].output))
+    .pipe(minifycss())    
     .pipe(rename({
       suffix: '.min'
-    }))
-    .pipe(minifycss())
-    .pipe(minifycss())
-    .pipe(gulp.dest(sassFiles[0].output + "/min"));
+    }))    
+    .pipe(gulp.dest(sassConfig[0].output+"/min"));
 });
 
 
-gulp.task('compressme', function() {
-  return gulp.src(sassFiles[0].output + sassFiles[0].name)
-    .pipe(cssBase64())
-    .pipe(gulp.dest(sassFiles[0].output));
-});
 
-gulp.task('build', function() {
-  return gulp.src(sassFiles[0].output + sassFiles[0].name)
-    .pipe(base64())
-    .pipe(gulp.dest('dist'));
-});
+gulp.task("default" , ["clean", "copysource", "sass", "connectDev"],function(){
+
+})
