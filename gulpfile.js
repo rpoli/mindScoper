@@ -19,12 +19,17 @@ var gulpCopy = require('gulp-copy');
 var autoprefixer = require('gulp-autoprefixer');
 var connect = require('gulp-connect');
 var clean = require('gulp-clean');
+var browserSync = require('browser-sync').create();
 
-/*This is intended to be a temporary solution until the release of gulp 4.0 
-which has support for defining task dependencies in series or in parallel.*/
-
-var runSequence = require('run-sequence');
-
+// Static server
+gulp.task('dev', function() {
+    browserSync.init({
+        server: {
+            baseDir: ["public/dist"],
+            index: "views/layouts/index.html"
+        }
+    });
+});
 
 
 
@@ -51,9 +56,9 @@ var sassConfig = [{
   name: 'app-main.css',
   excludedFiles: 'public/src/css/webfonts/**.scss',
   compileOptions : {
-    'style': 'compressed',
+    'style': 'expanded',
     'unixNewlines': true,
-    'cacheLocation': '_scss/.sass_cache'
+    'cacheLocation': '_scss/.sass_cache'    
   }
 }];
 
@@ -93,31 +98,22 @@ gulp.task("copysource",["clean"],function(){
 
 })
 
-gulp.task('connectDev',["clean"], function () {
-  connect.server({    
-    port: 8000,
-    livereload: true
-  });
-});
-
-
-
 gulp.task('sass',["clean"], function() {
   return sass(sassConfig[0].paths, sassConfig[0].compileOptions)    
     .pipe(cssBase64({
       maxWeightResource: 1000000
     }))
-    .pipe(concatCss("app-main.css"))
+    .pipe(gulp.dest(sassConfig[0].output))
+    //.pipe(gulpIgnore.exclude(condition))
+   /* .pipe(concatCss("app-main.css"))
     .pipe(gulp.dest(sassConfig[0].output))
     .pipe(minifycss())    
     .pipe(rename({
       suffix: '.min'
     }))    
-    .pipe(gulp.dest(sassConfig[0].output+"/min"));
+    .pipe(gulp.dest(sassConfig[0].output+"/min"));*/
 });
 
 
 
-gulp.task("default" , ["clean", "copysource", "sass", "connectDev"],function(){
-
-})
+gulp.task("default" , ["clean", "copysource", "sass"]);
