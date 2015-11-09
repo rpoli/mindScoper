@@ -1,5 +1,5 @@
 var React = require('react');
-var appStore = require('../stores/AppStore');
+var appStore = require('../stores/appStore');
 
 function getInitialAppData() {
   return {
@@ -14,15 +14,15 @@ class BaseReactComponent extends React.Component({
     this.state = getInitialAppData();
   }
 
-  componentDidMount: function() {
+  componentDidMount(){
     appStore.addChangeListener(this._onChange);
-  },
+  }
 
-  componentWillUnmount: function() {
+  componentWillUnmount(){
     appStore.removeChangeListener(this._onChange);
-  },
+  }
 
-  _onChange: function() {
+  _onChange(){
     this.setState(getInitialAppData());
   }
 

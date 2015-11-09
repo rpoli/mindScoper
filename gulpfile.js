@@ -1,38 +1,52 @@
 //*********** IMPORTS *****************//
-var gulp = require('gulp');
+var gulp = require('gulp'),
+  sass = require('gulp-ruby-sass'),
+  minifycss = require('gulp-minify-css'),
+  cssBase64 = require('gulp-css-base64'),
+  gutil = require('gulp-util'),
+  rename = require("gulp-rename"),
+  map = require("map-stream"),
+  livereload = require("gulp-livereload"),
+  concat = require("gulp-concat"),
+  uglify = require('gulp-uglify'),
+  watch = require('gulp-watch'),
+  gulpIgnore = require('gulp-ignore'),
+  concatCss = require('gulp-concat-css'),
+  gulpCopy = require('gulp-copy'),
+  autoprefixer = require('gulp-autoprefixer'),
+  connect = require('gulp-connect'),
+  clean = require('gulp-clean'),
+  browserSync = require('browser-sync').create(),
+  sourcemaps = require('gulp-sourcemaps'),
+  add = require('gulp-add'),
+  browserify = require('gulp-browserify'),
+  babel = require('gulp-babel');
 
-
-//************CSS PLUGINS**************//
-var sass = require('gulp-ruby-sass');
-var minifycss = require('gulp-minify-css');
-var cssBase64 = require('gulp-css-base64');
-var gutil = require('gulp-util');
-var rename = require("gulp-rename");
-var map = require("map-stream");
-var livereload = require("gulp-livereload");
-var concat = require("gulp-concat");
-var uglify = require('gulp-uglify');
-var watch = require('gulp-watch');
-var gulpIgnore = require('gulp-ignore');
-var concatCss = require('gulp-concat-css');
-var gulpCopy = require('gulp-copy');
-var autoprefixer = require('gulp-autoprefixer');
-var connect = require('gulp-connect');
-var clean = require('gulp-clean');
-var browserSync = require('browser-sync').create();
 
 // Static server
 gulp.task('dev', function() {
-    browserSync.init({
-        server: {
-            baseDir: ["public/dist"],
-            index: "views/layouts/index.html"
-        }
-    });
+  browserSync.init({
+    server: {
+      baseDir: ["public"],
+      index: "views/layouts/index.html"
+    }
+  });
 });
 
 
-
+gulp.task('babel', function() {
+    return gulp.src(['public/src/js/**/*.js','public/src/js/**/*.jsx',"!public/src/js/lib/**/*.js"])
+   //     .pipe(sourcemaps.init())
+        .pipe(babel({
+           "sourceMap": true,
+            "experimental": true
+        
+            //presets: ['es2015','stage-0','react']
+        }))
+     /*   .pipe(concat('main.js'))
+        .pipe(sourcemaps.write('.'))*/
+        .pipe(gulp.dest('public/dist/js/'));
+});
 
 global.errorMessage = '';
 
@@ -47,73 +61,70 @@ var getStamp = function() {
   return stampFullDate;
 };
 
-
-
 var sassConfig = [{
   watch: 'public/src/scss/**/*.scss',
   paths: ['public/src/scss/app-main.scss', 'public/src/scss/webfonts/**.scss'],
   output: 'public/dist/css/',
   name: 'app-main.css',
   excludedFiles: 'public/src/css/webfonts/**.scss',
-  compileOptions : {
+  compileOptions: {
     'style': 'expanded',
     'unixNewlines': true,
-    'cacheLocation': '_scss/.sass_cache'    
+    'cacheLocation': '_scss/.sass_cache',
+    'sourcemap': true
   }
 }];
 
-
 var filePaths = {
- src: 'public/src',
- dist: 'public/dist/',
- js: ['scripts/**/*.js', '!scripts/libs/**/*.js'],
- libs: ['scripts/libs/jquery/dist/jquery.js', 'scripts/libs/underscore/underscore.js', 'scripts/backbone/backbone.js'],
- styles: ['styles/**/*.css'],
- views: "public/src/views/**/**.html",
- viewsTarget : "public/dist/views/",
- images: "public/src/images/**/**",
- imagesTarget:"public/dist/images/",
- fonts : "public/src/fonts/**/**",
- fontsTarget :"public/dist/fonts/",
- extras: ['crossdomain.xml', 'humans.txt', 'manifest.appcache', 'robots.txt', 'favicon.ico']
+  src: 'public/src',
+  dist: 'public/dist/',
+  js: ['scripts/**/*.js', '!scripts/libs/**/*.js'],
+  libs: ['scripts/libs/jquery/dist/jquery.js', 'scripts/libs/underscore/underscore.js', 'scripts/backbone/backbone.js'],
+  styles: ['styles/**/*.css'],
+  views: "public/src/views/layouts/index.html",
+  viewsTarget: "public/dist/",
+  images: "public/src/images/**/**",
+  imagesTarget: "public/dist/images/",
+  fonts: "public/src/fonts/**/**",
+  fontsTarget: "public/dist/fonts/",
+  extras: ['crossdomain.xml', 'humans.txt', 'manifest.appcache', 'robots.txt', 'favicon.ico']
 };
 
-
-
-
 gulp.task('clean', function() {
- return gulp.src(filePaths.dist)
- .pipe(clean());
+  return gulp.src(filePaths.dist)
+    .pipe(clean());
 });
 
-
-gulp.task("copysource",["clean"],function(){
-  
-  gulp.src(filePaths.views)
-  .pipe(gulp.dest(filePaths.viewsTarget));
+gulp.task("copysource", ["clean"], function() {
   gulp.src(filePaths.images)
-  .pipe(gulp.dest(filePaths.imagesTarget));
+    .pipe(gulp.dest(filePaths.imagesTarget));
   gulp.src(filePaths.fonts)
-  .pipe(gulp.dest(filePaths.fontsTarget));
-
+    .pipe(gulp.dest(filePaths.fontsTarget));
 })
 
-gulp.task('sass',["clean"], function() {
-  return sass(sassConfig[0].paths, sassConfig[0].compileOptions)    
+gulp.task('sass', ["clean", "webfonts"], function() {
+  return sass(sassConfig[0].paths[0], sassConfig[0].compileOptions)
+    .pipe(sourcemaps.write())
     .pipe(cssBase64({
+      baseDir: "./public",
       maxWeightResource: 1000000
     }))
     .pipe(gulp.dest(sassConfig[0].output))
-    //.pipe(gulpIgnore.exclude(condition))
-   /* .pipe(concatCss("app-main.css"))
-    .pipe(gulp.dest(sassConfig[0].output))
-    .pipe(minifycss())    
+    .pipe(minifycss())
     .pipe(rename({
       suffix: '.min'
-    }))    
-    .pipe(gulp.dest(sassConfig[0].output+"/min"));*/
+    }))
+    .pipe(gulp.dest(sassConfig[0].output));
 });
 
 
+gulp.task('webfonts', ["clean"], function() {
+  return sass(sassConfig[0].paths[1], sassConfig[0].compileOptions)
+    .pipe(gulp.dest(sassConfig[0].output))
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest(sassConfig[0].output));
+});
 
-gulp.task("default" , ["clean", "copysource", "sass"]);
+gulp.task("default", ["clean", "copysource", "sass"]);
