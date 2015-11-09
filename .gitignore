@@ -31,3 +31,6 @@ npm-debug.log
 .sass-cache
 build
 public/build
+public/dist
+dist
+
