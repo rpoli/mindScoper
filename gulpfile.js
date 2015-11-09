@@ -19,8 +19,10 @@ var gulp = require('gulp'),
   browserSync = require('browser-sync').create(),
   sourcemaps = require('gulp-sourcemaps'),
   add = require('gulp-add'),
-  browserify = require('gulp-browserify'),
-  babel = require('gulp-babel');
+  browserify = require('browserify'),
+  babel = require('gulp-babel'),
+  vsource = require('vinyl-source-stream'),
+  buffer = require('vinyl-buffer');
 
 
 // Static server
@@ -34,19 +36,40 @@ gulp.task('dev', function() {
 });
 
 
-gulp.task('babel', function() {
+gulp.task('babel',['clean'], function() {
     return gulp.src(['public/src/js/**/*.js','public/src/js/**/*.jsx',"!public/src/js/lib/**/*.js"])
    //     .pipe(sourcemaps.init())
         .pipe(babel({
-           "sourceMap": true,
-            "experimental": true
-        
-            //presets: ['es2015','stage-0','react']
+            "sourceMap": true,        
+            presets: ['es2015','stage-0','react']
         }))
      /*   .pipe(concat('main.js'))
         .pipe(sourcemaps.write('.'))*/
         .pipe(gulp.dest('public/dist/js/'));
 });
+
+gulp.task('browserify',["babel", "clean"], function(){
+
+       var brInstance = browserify({
+          entries: 'public/dist/js/main.js',
+          debug: true
+      });
+
+    return brInstance.bundle()
+    .pipe(vsource('appBundle.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: true}))
+        // Add transformation tasks to the pipeline here.
+        .pipe(uglify())
+        .on('error', gutil.log)
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('./public/dist/js/'));
+
+
+});
+
+
+
 
 global.errorMessage = '';
 
@@ -79,7 +102,8 @@ var filePaths = {
   src: 'public/src',
   dist: 'public/dist/',
   js: ['scripts/**/*.js', '!scripts/libs/**/*.js'],
-  libs: ['scripts/libs/jquery/dist/jquery.js', 'scripts/libs/underscore/underscore.js', 'scripts/backbone/backbone.js'],
+  libs: ['public/src/js/lib/**/*.js'],
+  libsTarget: 'public/dist/js/lib/',
   styles: ['styles/**/*.css'],
   views: "public/src/views/layouts/index.html",
   viewsTarget: "public/dist/",
@@ -100,7 +124,14 @@ gulp.task("copysource", ["clean"], function() {
     .pipe(gulp.dest(filePaths.imagesTarget));
   gulp.src(filePaths.fonts)
     .pipe(gulp.dest(filePaths.fontsTarget));
+
+    gulp.src(filePaths.libs)
+    .pipe(gulp.dest(filePaths.libsTarget));
+
+
+
 })
+
 
 gulp.task('sass', ["clean", "webfonts"], function() {
   return sass(sassConfig[0].paths[0], sassConfig[0].compileOptions)
@@ -127,4 +158,4 @@ gulp.task('webfonts', ["clean"], function() {
     .pipe(gulp.dest(sassConfig[0].output));
 });
 
-gulp.task("default", ["clean", "copysource", "sass"]);
+gulp.task("default", ["clean", "copysource", "sass", "babel", "browserify"]);

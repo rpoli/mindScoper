@@ -7,7 +7,7 @@ function getInitialAppData() {
   };
 }
 
-class BaseReactComponent extends React.Component({
+class BaseReactComponent extends React.Component {
 
   constructor(props) {
     super(props);
@@ -26,6 +26,6 @@ class BaseReactComponent extends React.Component({
     this.setState(getInitialAppData());
   }
 
-});
+};
 
 export default BaseReactComponent;
