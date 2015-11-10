@@ -20,55 +20,12 @@ var gulp = require('gulp'),
   sourcemaps = require('gulp-sourcemaps'),
   add = require('gulp-add'),
   browserify = require('browserify'),
-  babel = require('gulp-babel'),
   vsource = require('vinyl-source-stream'),
-  buffer = require('vinyl-buffer');
-
-
-// Static server
-gulp.task('dev', function() {
-  browserSync.init({
-    server: {
-      baseDir: ["public"],
-      index: "views/layouts/index.html"
-    }
-  });
-});
-
-
-gulp.task('babel',['clean'], function() {
-    return gulp.src(['public/src/js/**/*.js','public/src/js/**/*.jsx',"!public/src/js/lib/**/*.js"])
-   //     .pipe(sourcemaps.init())
-        .pipe(babel({
-            "sourceMap": true,        
-            presets: ['es2015','stage-0','react']
-        }))
-     /*   .pipe(concat('main.js'))
-        .pipe(sourcemaps.write('.'))*/
-        .pipe(gulp.dest('public/dist/js/'));
-});
-
-gulp.task('browserify',["babel", "clean"], function(){
-
-       var brInstance = browserify({
-          entries: 'public/dist/js/main.js',
-          debug: true
-      });
-
-    return brInstance.bundle()
-    .pipe(vsource('appBundle.js'))
-    .pipe(buffer())
-    .pipe(sourcemaps.init({loadMaps: true}))
-        // Add transformation tasks to the pipeline here.
-        .pipe(uglify())
-        .on('error', gutil.log)
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./public/dist/js/'));
-
-
-});
-
-
+  buffer = require('vinyl-buffer'),
+  babelify = require('babelify');
+  nodemon = require('gulp-nodemon'),
+  open = require('gulp-open'),
+  gls = require('gulp-live-server');
 
 
 global.errorMessage = '';
@@ -83,6 +40,43 @@ var getStamp = function() {
   var stampFullDate = stampYear + stampMonth + stampDay + stampSeconds;
   return stampFullDate;
 };
+
+
+
+
+  gulp.task('serve', function() {
+    //1. run your script as a server
+    var server = gls.new('app.js');
+    server.start();
+    //use gulp.watch to trigger server actions(notify, start or stop)
+    gulp.watch('./public/views/**/*.html',function(file){
+      server.notify.call(server, file);
+    });
+//    gulp.watch('app.js', server.start.bind(server)); //restart my server
+
+    // Note: try wrapping in a function if getting an error like `TypeError: Bad argument at TypeError (native) at ChildProcess.spawn`
+    gulp.watch('app.js', function() {
+      server.start.bind(server)()
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 var sassConfig = [{
   watch: 'public/src/scss/**/*.scss',
@@ -124,12 +118,6 @@ gulp.task("copysource", ["clean"], function() {
     .pipe(gulp.dest(filePaths.imagesTarget));
   gulp.src(filePaths.fonts)
     .pipe(gulp.dest(filePaths.fontsTarget));
-
-    gulp.src(filePaths.libs)
-    .pipe(gulp.dest(filePaths.libsTarget));
-
-
-
 })
 
 
@@ -158,4 +146,55 @@ gulp.task('webfonts', ["clean"], function() {
     .pipe(gulp.dest(sassConfig[0].output));
 });
 
-gulp.task("default", ["clean", "copysource", "sass", "babel", "browserify"]);
+// Static server
+gulp.task('dev', function() {
+  browserSync.init({    
+    server: {
+      baseDir: ["public"],
+      index: "views/layouts/index.html"
+    }    
+  });
+});
+
+gulp.task('browserify',["clean"], function(){
+  return browserify(
+          {
+            entries: 'public/src/js/main.js',
+            extensions: ['.jsx','.js'],           
+            debug: true
+          })
+          .transform(babelify, {
+            presets : ["es2015",'stage-0', "react"]
+          })
+        .bundle()      
+        .pipe(vsource('bundleApp.js'))
+        .pipe(buffer())
+          .pipe(uglify())
+        .pipe(gulp.dest('public/dist/js'));
+});
+
+gulp.task('start', function () {
+  nodemon({
+    script: 'app.js',
+    ext: 'js html scss',
+    env: { 'NODE_ENV': 'development' }
+  })
+  .on('start',function(){
+    console.log("started");
+/*    gulp.src('./public/views/layouts/index.html')
+    .pipe(open({
+      uri: 'localhost:5000',
+      app: 'firefox'
+    }));*/
+
+  })
+  .on('restart', function(){
+    console.log("restarted")
+  })
+  .on('exit',function(){
+    console.log("done")
+  });
+
+});
+
+gulp.task("build", ["clean", "copysource", "sass","browserify"]);

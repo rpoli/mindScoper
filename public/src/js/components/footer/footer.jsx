@@ -1,5 +1,5 @@
 
-import React from '../../lib/react/react';
+import React from 'react';
 
 class HelloWorld extends React.Component {
   render() {
