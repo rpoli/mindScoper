@@ -23,7 +23,6 @@ var gulp = require('gulp'),
   vsource = require('vinyl-source-stream'),
   buffer = require('vinyl-buffer'),
   babelify = require('babelify');
-  nodemon = require('gulp-nodemon'),
   open = require('gulp-open'),
   gls = require('gulp-live-server'),
   watchify = require('watchify');
@@ -136,12 +135,13 @@ gulp.task('server', function() {
 var browserifyHandler = function() {
   return browserify(
           {
-            entries: 'public/src/js/main.js',
+            entries: 'public/src/js/main.jsx',
             extensions: ['.jsx','.js'],           
             debug: true,
             compact: false,
             cache: {},
             packageCache: {},
+            paths : ["public/src/js"]
           })
           .transform(babelify, {
             presets : ["es2015",'stage-0',"react"]

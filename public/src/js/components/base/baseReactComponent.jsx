@@ -1,11 +1,9 @@
-var React = require('react');
-var ReactDom = require('react-dom');
-var appStore = require('../stores/appStore');
+import React from 'react';
+import ReactDom from 'react-dom';
+import appStore from 'stores/appStore';
 
 function getInitialAppData() {
-  return {
-    allTodos: appStore.getAll()
-  };
+  return appStore.getAll();
 }
 
 class BaseReactComponent extends React.Component {
