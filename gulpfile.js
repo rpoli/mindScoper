@@ -172,3 +172,6 @@ gulp.task('watch', function () {
 });
 
 gulp.task("build", [ "copysource","sass","browserify"]);
+gulp.task("default", [ "copysource","sass","browserify"]);
+
+
