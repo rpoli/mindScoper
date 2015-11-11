@@ -15,6 +15,7 @@ var app = express();
 
 // view engine setup
 app.set("root", path.join(__dirname, ''));
+app.use(require('connect-livereload')());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('views', path.join(__dirname, 'public/views'));
@@ -70,7 +71,7 @@ app.use(function(err, req, res, next) {
   });
 });
 
-var port = normalizePort(process.env.PORT || '5000');
+var port = normalizePort(process.env.PORT || '9999');
 app.set('port', port);
 
 

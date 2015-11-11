@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDom = require('react-dom');
 var appStore = require('../stores/appStore');
 
 function getInitialAppData() {

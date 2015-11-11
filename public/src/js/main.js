@@ -1,7 +1,8 @@
 
 import React from './lib/react/react';
-import HelloWorld from './components/footer/footer';
+var ReactDOM = require('react-dom');
+import Header from './components/header/header';
+import Footer from './components/footer/footer';
  
-React.render(<HelloWorld />,
-  document.body
-);
+ReactDOM.render(<Header/>,document.getElementById("appHeader"));
+ReactDOM.render(<Footer />,document.getElementById("appFooter"));

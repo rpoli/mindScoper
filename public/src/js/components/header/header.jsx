@@ -1,8 +1,8 @@
-import React from '../../lib/react/react';
+import React from 'react';
 
 class Header extends React.Component {
   render() {
-    return <p></p>;
+    return <p>Hello Ramesh How are you </p>;
   }
 }
 
