@@ -28,7 +28,9 @@ node_modules
 
 # Debug log from npm
 npm-debug.log
-.sass-cache/
+.sass_cache/
+sass_cache
+.sass-cache
 build
 public/build
 public/dist

@@ -54,7 +54,7 @@ var sassConfig = [{
   name: 'app-main.css',
   excludedFiles: 'public/src/css/webfonts/**.scss',
   compileOptions: {
-    'style': 'compressed',
+    'style': 'expanded',   // expanded compressed
     'unixNewlines': true,
     'cacheLocation': './.sass_cache',
     'sourcemap': true

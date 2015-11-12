@@ -1,18 +1,21 @@
 
 import AppDispatcher from 'dispatcher/appDispatcher';
 import AppConstants from 'constants/appConstants';
+import dataJson from 'dataJson';
 
 var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
 var CHANGE_EVENT = 'change';
 
 var appData = {
-    userName : "Ramesh Polishetti"
-}; // collection of todo items
-
-
-
-
+  user: {
+    name: "Ramesh Polishetti"  
+  },
+  session: {
+    id: "AA12"
+  },
+  score : dataJson.score
+}; 
 
 var AppStore = assign({}, EventEmitter.prototype, {
 

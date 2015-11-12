@@ -14,17 +14,17 @@
 
 .score-list ul{
 	list-style: none;
-	li{
-		color: #bababa;
-		height: 35px;
-		padding-top:8px;
+}
 
-		&.active-score{
-			color: #f7ab24
-		}
-
+.score-node {
+	color: #bababa;
+	height: 35px;
+	padding-top: 8px;
+	&.active {
+		color: #f7ab24;
 	}
 }
+
 
 .container-fluid .row{
 	margin:0;

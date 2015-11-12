@@ -1,10 +1,15 @@
 
 import React from 'react';
+import BaseReactComponent from 'components/base/baseReactComponent';
 
-class HelloWorld extends React.Component {
+class Footer extends BaseReactComponent {
   render() {
-    return <div className="footer-container">Helllo Ramesh how are you  you</div>;
+    return (
+    	<footer>
+    		<div className="footer-container"></div>
+    	</footer>
+    );	
   }
 }
 
-export default HelloWorld;
+export default Footer;
