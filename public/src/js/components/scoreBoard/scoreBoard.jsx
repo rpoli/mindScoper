@@ -19,8 +19,10 @@ class ScoreBoard extends React.Component {
           <div className="score-list">
             <ul>
               {
-                this.props.scoreData.reverse().map(function(nodeObj){
-                  return (<ScoreNode key={nodeObj.serial} scoreObj={nodeObj}/>);
+                this.props.scoreData.map((nodeObj)=>{
+                  return (<ScoreNode key={nodeObj.serial} scoreObj={nodeObj}
+                    cqSerial={this.props.cqSerial}/>
+                  );
                 })
               }
             </ul>

@@ -14,14 +14,15 @@ class BaseReactComponent extends React.Component {
   }
 
   componentDidMount(){
-    appStore.addChangeListener(this._onChange);
+    appStore.addChangeListener(this._onChange.bind(this));
   }
 
   componentWillUnmount(){
-    appStore.removeChangeListener(this._onChange);
+    appStore.removeChangeListener(this._onChange.bind(this));
   }
 
   _onChange(){
+    console.log(this);
     this.setState(getInitialAppData());
   }
 

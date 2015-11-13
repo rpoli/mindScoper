@@ -9,7 +9,6 @@ class ScoreNode extends React.Component {
   }
   
   render() {
- 
     let activeScoreArrow = ((comp)=>{
         if(comp.props.scoreObj.active){
           return <span aria-hidden="true" className="glyphicon glyphicon-chevron-right"></span>;
@@ -19,7 +18,7 @@ class ScoreNode extends React.Component {
       })(this);  
 
     return (
-      <li className={classNames("score-node",this.props.scoreObj.active ? 'active':'')}>
+      <li className={classNames("score-node",this.props.cqSerial >= this.props.scoreObj.serial ? 'active':'')}>
         <div className="row">
           <div className="col-md-1">
              {activeScoreArrow}

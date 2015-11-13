@@ -6,7 +6,7 @@ var mockJson = {
     id: "AA12"
   },
   score: {
-    currentScore: 130000,
+    currentScore: 0,
     scoreJson: [{
       serial: 1,
       value: 1000,
@@ -71,105 +71,364 @@ var mockJson = {
   },
   qSet: [{
     serial: 1,
-    text: "What is Javascript",
-    optSet:[
-      {},{},{},{}
+    text: "What is Javascript ---1",
+    optionSet:[
+      {
+        key : 'a',
+        text : 'a',
+        selected: false
+      },{
+        key : 'b',
+        text : 'b',
+        selected: false
+      },{
+        key : 'c',
+        text : 'c',
+        selected: false
+      },{
+        key : 'd',
+        text : 'd',
+        selected: false
+      }
     ],
-    key: "a"
+    key: "a",
+    answered: false
   },{
     serial: 2,
-    text: "What is Javascript",
-     optSet:[
-      {},{},{},{}
+    text: "What is Javascript ----- 2",
+     optionSet:[
+      {
+        key : 'a',
+        text : 'a',
+        selected: false
+      },{
+        key : 'b',
+        text : 'b',
+        selected: false
+      },{
+        key : 'c',
+        text : 'c',
+        selected: false
+      },{
+        key : 'd',
+        text : 'd',
+        selected: false
+      }
     ],
-    key: "a"
+    key: "b",
+    answered: false
   },{
     serial: 3,
-    text: "What is Javascript",
-    optSet:[
-      {},{},{},{}
+    text: "What is Javascript ---3",
+    optionSet:[
+      {
+        key : 'a',
+        text : 'a',
+        selected: false
+      },{
+        key : 'b',
+        text : 'b',
+        selected: false
+      },{
+        key : 'c',
+        text : 'c',
+        selected: false
+      },{
+        key : 'd',
+        text : 'd',
+        selected: false
+      }
     ],
-    key: "a"
+    key: "c",
+    answered: false
   },{
     serial: 4,
-    text: "What is Javascript",
-    optSet:[
-      {},{},{},{}
+    text: "What is Javascript ------4",
+    optionSet:[
+      {
+        key : 'a',
+        text : 'a',
+        selected: false
+      },{
+        key : 'b',
+        text : 'b',
+        selected: false
+      },{
+        key : 'c',
+        text : 'c',
+        selected: false
+      },{
+        key : 'd',
+        text : 'd',
+        selected: false
+      }
     ],
-    key: "a"
+    key: "d",
+    answered: false
   },{
     serial: 5,
-    text: "What is Javascript",
-    optSet:[
-      {},{},{},{}
+    text: "What is Javascript ------5",
+    optionSet:[
+      {
+        key : 'a',
+        text : 'a',
+        selected: false
+      },{
+        key : 'b',
+        text : 'b',
+        selected: false
+      },{
+        key : 'c',
+        text : 'c',
+        selected: false
+      },{
+        key : 'd',
+        text : 'd',
+        selected: false
+      }
     ],
-    key: "a"
+    key: "a",
+    answered: false
   },{
     serial: 6,
-    text: "What is Javascript",
-    optSet:[
-      {},{},{},{}
+    text: "What is Javascript -----6",
+    optionSet:[
+      {
+        key : 'a',
+        text : 'a',
+        selected: false
+      },{
+        key : 'b',
+        text : 'b',
+        selected: false
+      },{
+        key : 'c',
+        text : 'c',
+        selected: false
+      },{
+        key : 'd',
+        text : 'd',
+        selected: false
+      }
     ],
-    key: "a"
+    key: "b",
+    answered: false
   },{
     serial: 7,
-    text: "What is Javascript",
-    optSet:[
-      {},{},{},{}
+    text: "What is Javascript ------7",
+    optionSet:[
+      {
+        key : 'a',
+        text : 'a',
+        selected: false
+      },{
+        key : 'b',
+        text : 'b',
+        selected: false
+      },{
+        key : 'c',
+        text : 'c',
+        selected: false
+      },{
+        key : 'd',
+        text : 'd',
+        selected: false
+      }
     ],
-    key: "a"
+    key: "c",
+    answered: false
   },{
     serial: 8,
-    text: "What is Javascript",
-    optSet:[
-      {},{},{},{}
+    text: "What is Javascript ------8",
+    optionSet:[
+      {
+        key : 'a',
+        text : 'a',
+        selected: false
+      },{
+        key : 'b',
+        text : 'b',
+        selected: false
+      },{
+        key : 'c',
+        text : 'c',
+        selected: false
+      },{
+        key : 'd',
+        text : 'd',
+        selected: false
+      }
     ],
-    key: "a" 
+    key: "d",
+    answered: false 
   },{
     serial: 9,
-    text: "What is Javascript",
-    optSet:[
-      {},{},{},{}
+    text: "What is Javascript -----9",
+    optionSet:[
+      {
+        key : 'a',
+        text : 'a',
+        selected: false
+      },{
+        key : 'b',
+        text : 'b',
+        selected: false
+      },{
+        key : 'c',
+        text : 'c',
+        selected: false
+      },{
+        key : 'd',
+        text : 'd',
+        selected: false
+      }
     ],
-    key: "a"
+    key: "a",
+    answered: false
   },{
     serial: 10,
-    text: "What is Javascript",
-    optSet:[
-      {},{},{},{}
+    text: "What is Javascript -----10",
+    optionSet:[
+      {
+        key : 'a',
+        text : 'a',
+        selected: false
+      },{
+        key : 'b',
+        text : 'b',
+        selected: false
+      },{
+        key : 'c',
+        text : 'c',
+        selected: false
+      },{
+        key : 'd',
+        text : 'd',
+        selected: false
+      }
     ],
-    key: "a"
+    key: "b",
+    answered: false
   },{
     serial: 11,
-    text: "What is Javascript",
-    optSet:[
-      {},{},{},{}
+    text: "What is Javascript ------11",
+    optionSet:[
+      {
+        key : 'a',
+        text : 'a',
+        selected: false
+      },{
+        key : 'b',
+        text : 'b',
+        selected: false
+      },{
+        key : 'c',
+        text : 'c',
+        selected: false
+      },{
+        key : 'd',
+        text : 'd',
+        selected: false
+      }
     ],
-    key: "a"
+    key: "c",
+    answered: false
   },{
     serial: 12,
-    text: "What is Javascript",
-    optSet:[
-      {},{},{},{}
+    text: "What is Javascript --------12",
+    optionSet:[
+      {
+        key : 'a',
+        text : 'a',
+        selected: false
+      },{
+        key : 'b',
+        text : 'b',
+        selected: false
+      },{
+        key : 'c',
+        text : 'c',
+        selected: false
+      },{
+        key : 'd',
+        text : 'd',
+        selected: false
+      }
     ],
-    key: "a"
+    key: "d",
+    answered: false
   },{
     serial: 13,
-    text: "What is Javascript",
+    text: "What is Javascript -------13",
+    optionSet:[
+      {
+        key : 'a',
+        text : 'a',
+        selected: false
+      },{
+        key : 'b',
+        text : 'b',
+        selected: false
+      },{
+        key : 'c',
+        text : 'c',
+        selected: false
+      },{
+        key : 'd',
+        text : 'd',
+        selected: false
+      }
+    ],
+    key: "a",
+    answered: false
   },{
     serial: 14,
-    text: "What is Javascript",
-    optSet:[
-      {},{},{},{}
+    text: "What is Javascript ------14",
+    optionSet:[
+      {
+        key : 'a',
+        text : 'a',
+        selected: false
+      },{
+        key : 'b',
+        text : 'b',
+        selected: false
+      },{
+        key : 'c',
+        text : 'c',
+        selected: false
+      },{
+        key : 'd',
+        text : 'd',
+        selected: false
+      }
     ],
-    key: "a"
+    key: "b",
+    answered: false
   },{
     serial: 15,
-    text: "What is Javascript",
-    optSet:[
-      {},{},{},{}
+    text: "What is Javascript -----15",
+    optionSet:[
+      {
+        key : 'a',
+        text : 'a',
+        selected: false
+      },{
+        key : 'b',
+        text : 'b',
+        selected: false
+      },{
+        key : 'c',
+        text : 'c',
+        selected: false
+      },{
+        key : 'd',
+        text : 'd',
+        selected: false
+      }
     ],
-    key: "a"
+    key: "c",
+    answered: false
   }]
 };
 

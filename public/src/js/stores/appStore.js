@@ -14,8 +14,30 @@ var appData = {
   session: {
     id: "AA12"
   },
-  score : dataJson.score
+  score : {
+    currentScore : 0,
+    scoreJson : dataJson.score.scoreJson.reverse()
+  },
+  qSet: dataJson.qSet,
+  cqSerial: 1,
+  qElapsed: 0,
+  selectedOption: null
 }; 
+
+function setCurrentQuestionSerial(data) {
+  appData.cqSerial = data;
+}
+
+function setQuestionsElapsed(data) {
+  appData.qElapsed = data
+}
+
+function setActiveOption (data) {
+  for(var i=0; i<appData.qSet[data.qSerial-1].optionSet.length; i++){
+      appData.qSet[data.qSerial-1].optionSet[i].selected = false;    
+  }
+  appData.qSet[data.qSerial-1].optionSet[data.optionIndex].selected = true;    
+}
 
 var AppStore = assign({}, EventEmitter.prototype, {
 
@@ -49,21 +71,23 @@ var AppStore = assign({}, EventEmitter.prototype, {
 
   dispatcherIndex: AppDispatcher.register(function(payload) {
     var action = payload.action;
-    var text;
+    var data;
 
     switch(action.actionType) {
-      case AppConstants.TODO_CREATE:
-        text = action.text.trim();
-        if (text !== '') {
-        
-          AppStore.emitChange();
-        }
-        break;
-
-      case AppConstants.TODO_DESTROY:
-        
+      case AppConstants.SET_CURRENT_QUESTION_SERIAL:
+        data = action.data;
+        setCurrentQuestionSerial(data)
         AppStore.emitChange();
         break;
+
+      case AppConstants.SET_QUESTIONS_ELAPSED:
+        AppStore.emitChange();
+        break;
+
+      case AppConstants.SET_ACTIVE_OPTION:
+        setActiveOption(action.data);
+        AppStore.emitChange();
+        break;  
 
       // add more cases for other actionTypes, like TODO_UPDATE, etc.
     }

@@ -1,49 +1,27 @@
-var AppDispatcher = require('../dispatcher/AppDispatcher');
-var AppConstants = require('../constants/AppConstants');
+import AppDispatcher from 'dispatcher/appDispatcher';
+import AppConstants from 'constants/appConstants';
 
 // Define actions object
 let AppViewActions = {
 
-  // Receive inital product data
-  receiveProduct: function(data) {
-    AppDispatcher.handleAction({
-      actionType: AppConstants.RECEIVE_DATA,
-      data: data
-    })
+// Set current question serial
+  setCurrentQuestionSerial: function(serial){
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.SET_CURRENT_QUESTION_SERIAL,
+      data: serial
+    });
   },
 
-  // Set currently selected product variation
-  selectProduct: function(index) {
-    AppDispatcher.handleAction({
-      actionType: AppConstants.SELECT_PRODUCT,
-      data: index
-    })
-  },
-
-  // Add item to cart
-  addToCart: function(sku, update) {
-    AppDispatcher.handleAction({
-      actionType: AppConstants.CART_ADD,
-      sku: sku,
-      update: update
-    })
-  },
-
-  // Remove item from cart
-  removeFromCart: function(sku) {
-    AppDispatcher.handleAction({
-      actionType: AppConstants.CART_REMOVE,
-      sku: sku
-    })
-  },
-
-  // Update cart visibility status
-  updateCartVisible: function(cartVisible) {
-    AppDispatcher.handleAction({
-      actionType: AppConstants.CART_VISIBLE,
-      cartVisible: cartVisible
-    })
-  }
+// Set active option
+	setActiveOption : function(optionIndex, qSerial) {
+		AppDispatcher.handleViewAction({
+      actionType: AppConstants.SET_ACTIVE_OPTION,
+      data: {
+      	optionIndex : optionIndex,
+      	qSerial : qSerial
+      }
+    });
+	}
 
 };
 

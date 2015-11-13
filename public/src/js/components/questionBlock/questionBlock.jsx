@@ -5,7 +5,7 @@ class QuestionBlock extends React.Component {
   
   constructor(props) {
     super(props);
-    console.log(this.state);
+    console.log(props);
   }
   
   render() {
@@ -13,14 +13,23 @@ class QuestionBlock extends React.Component {
       <div className="col-md-7 question-section">        
         <div className="row q-div">
           <div className="col-md-2 q-serial">
-            <span>09</span>
+            <span>{this.props.currentQuestion.serial}</span>
           </div>
           <div className="col-md-10 q-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ?
+            {this.props.currentQuestion.text}
           </div>
         </div>
-        <OptionBlock />
-        <SessionControl />
+        <div className="row option-section">
+          {
+            this.props.currentOptions.map((optObj, index)=>{
+              return (<OptionBlock key={optObj.key} optionObj={optObj}
+                index={index} 
+                qSerial={this.props.currentQuestion.serial}
+                qKey={this.props.currentQuestion.key}/>)
+            })
+          }
+        </div>
+        <SessionControl cqSerial={this.props.cqSerial}/>
       </div>
     );
   }

@@ -1,11 +1,6 @@
 var keyMirror = require('keymirror');
 
 export default keyMirror({
-  TODO_CREATE: null,
-  TODO_COMPLETE: null,
-  TODO_DESTROY: null,
-  TODO_DESTROY_COMPLETED: null,
-  TODO_TOGGLE_COMPLETE_ALL: null,
-  TODO_UNDO_COMPLETE: null,
-  TODO_UPDATE_TEXT: null
+  SET_CURRENT_QUESTION_SERIAL: null,
+  SET_ACTIVE_OPTION: null
 });
