@@ -9,9 +9,9 @@ class OptionBlock extends React.Component {
     console.log(props);
   }
   
-  setActiveOption(optionIndex, qSerial) {
+  setActiveOption(optionKey, optionIndex, qSerial, qKey) {
     console.log(optionIndex, qSerial);
-    AppViewActions.setActiveOption(optionIndex, qSerial);
+    AppViewActions.setActiveOption(optionKey, optionIndex, qSerial, qKey);
   }
 
   render() {
@@ -20,7 +20,7 @@ class OptionBlock extends React.Component {
         <div className="row">
           <div className="col-md-2 option-serial">{this.props.optionObj.key}</div>
           <div className="col-md-10 option-text" 
-            onClick={this.setActiveOption.bind(this, this.props.index, this.props.qSerial)}>
+            onClick={this.setActiveOption.bind(this, this.props.optionObj.key, this.props.index, this.props.qSerial, this.props.qKey)}>
             {this.props.optionObj.text}
           </div>
         </div>

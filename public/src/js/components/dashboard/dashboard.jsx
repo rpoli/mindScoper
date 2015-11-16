@@ -8,27 +8,96 @@ class Dashboard extends BaseReactComponent {
   
   constructor(props) {
     super(props);
-    console.log(this.state);
   }
 
-  getCurrentQuestion(qNo, qSet) {
-    var qIndex = qNo-1;
+  getCurrentQuestion(qSerial, qSet) {
+    var qIndex = qSerial-1;
     return qSet[qIndex];
   }
 
-  getCurrentOptionSet(qNo, qSet){
-    var qIndex = qNo-1;
+  getCurrentOptions(qSerial, qSet){
+    var qIndex = qSerial-1;
     return qSet[qIndex].optionSet;
   }
+
+  getSelectedOption (qSerial, qSet) {
+    var qIndex = qSerial-1;
+    return qSet[qIndex].optionSet; 
+  }
+
+  getSolutionKey(){
+    var qIndex = qSerial-1;
+    return qSet[qIndex].optionSet; 
+  }
+
+  getOptionStatus(qSerial, qSet){
+    var qIndex = qSerial-1;
+    return qSet[qIndex].optionStatus; 
+  }
+
+  getAnswerStatus(qSerial, qSet){
+    var qIndex = qSerial-1;
+    return qSet[qIndex].answerStatus; 
+  }
+
+  getValue(qSerial, qSet, key) {
+    var qIndex = qSerial-1;
+
+    switch(key){
+      case "currentQuestion"
+      return 
+      break;
+      case "currentQuestion"
+      break;
+      case "currentQuestion"
+      break;
+      case "currentQuestion"
+      break;
+      case "currentQuestion"
+      break;
+      case "currentQuestion"
+      break;
+      case "currentQuestion"
+      break;
+
+
+
+
+
+
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   render() {
     return (
       <div className="container-fluid">
         <Score currentScore = {this.state.score.currentScore}/>
         <div className="row">
-          <QuestionBlock currentQuestion={this.getCurrentQuestion(this.state.cqSerial, this.state.qSet)} 
-          currentOptions={this.getCurrentOptionSet(this.state.cqSerial, this.state.qSet)}
-          cqSerial={this.state.cqSerial}/>    
+          <QuestionBlock 
+            cqSerial={this.state.cqSerial}
+            currentQuestion={this.getCurrentQuestion(this.state.cqSerial, this.state.qSet)} 
+            currentOptions={this.getCurrentOptions(this.state.cqSerial, this.state.qSet)}            
+            solutionKey={this.getSolutionKey(this.state.cqSerial, this.state.qSet)}
+            selectedOption={this.getSelectedOption(this.state.cqSerial, this.state.qSet)}
+            optionStatus={this.getOptionStatus(this.state.cqSerial, this.state.qSet)}
+            answerStatus={this.getAnswerStatus(this.state.cqSerial, this.state.qSet)}
+          />    
           <ScoreBoard scoreData={this.state.score.scoreJson}
           cqSerial={this.state.cqSerial}/>
         </div>

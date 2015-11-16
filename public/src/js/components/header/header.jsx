@@ -5,7 +5,6 @@ class Header extends BaseReactComponent {
   
   constructor(props) {
     super(props);
-    console.log(this.state);
   }
   
   render() {

@@ -21,8 +21,7 @@ class BaseReactComponent extends React.Component {
     appStore.removeChangeListener(this._onChange.bind(this));
   }
 
-  _onChange(){
-    console.log(this);
+  _onChange(){    
     this.setState(getInitialAppData());
   }
 

@@ -14,7 +14,10 @@ class SessionControl extends React.Component {
     }
   }
 
-  setNextQuestionSerial(cqSerial) {
+  setNextQuestionSerial(cqSerial, answerStatus) {
+
+    console.log(answerStatus);
+
     var cqSerial = Number(cqSerial);
     if(cqSerial<15){
       AppViewActions.setCurrentQuestionSerial(cqSerial+1);
@@ -24,7 +27,20 @@ class SessionControl extends React.Component {
   animateSelectedOption(){
 
   }
-  
+
+  lockOption(cqSerial, qKey, selectedOption){
+    console.log(cqSerial, qKey, selectedOption);
+    if(selectedOption){
+      if(selectedOption == qKey){
+        AppViewActions.updateOptionStatus(cqSerial, true);
+      }else{
+        AppViewActions.updateOptionStatus(cqSerial, false);
+      }
+    }else{
+      console.log("please choose option");
+    }
+  }
+
   render() {
     return (
       <div className='row user-controls'>
@@ -35,13 +51,15 @@ class SessionControl extends React.Component {
           </button>
         </div>
         <div className='col-md-2'>
-          <button type="button" className="btn btn-primary evn-btn">Lock
+          <button type="button" className="btn btn-primary evn-btn" 
+          onClick={this.lockOption.bind(this,this.props.cqSerial, this.props.qKey, this.props.selectedOption)}
+          >Lock
             <span className="glyphicon glyphicon-lock" aria-hidden="true"></span>
           </button>
         </div>
         <div className='col-md-2'>
           <button type="button" className="evn-btn btn btn-primary"
-          onClick={this.setNextQuestionSerial.bind(this, this.props.cqSerial)}>Next
+          onClick={this.setNextQuestionSerial.bind(this, this.props.cqSerial, this.props.answerStatus)}>Next
             <span aria-hidden="true" className="glyphicon glyphicon-chevron-right next-btn"></span>
           </button>
         </div>

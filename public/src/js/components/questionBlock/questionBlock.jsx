@@ -29,7 +29,11 @@ class QuestionBlock extends React.Component {
             })
           }
         </div>
-        <SessionControl cqSerial={this.props.cqSerial}/>
+        <SessionControl cqSerial={this.props.cqSerial} 
+          qKey={this.props.qKey} 
+          selectedOption={this.props.selectedOption}
+          answerStatus={this.props.answerStatus}
+        />
       </div>
     );
   }
