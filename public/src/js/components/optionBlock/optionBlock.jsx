@@ -15,7 +15,6 @@ class OptionBlock extends React.Component {
     } else {
       console.log("You answered already");
     }   
-    
   }
 
   render() {

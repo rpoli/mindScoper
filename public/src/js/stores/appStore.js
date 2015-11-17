@@ -23,7 +23,7 @@ var appData = {
   qElapsed: 0
 }; 
 
-function setCurrentQuestionIndex(data) {
+function setCurrentQuestionIndex(data) { 
   appData.cqIndex = data;
 }
 
@@ -33,6 +33,9 @@ function setQuestionsElapsed(data) {
 
 function setActiveOption (data) {
   
+    console.log(data);
+    console.log("q");
+
   for(var i=0; i<appData.qSet[data.cqIndex].optionSet.length; i++){
       appData.qSet[data.cqIndex].optionSet[i].selected = false;    
   }
@@ -43,17 +46,17 @@ function setActiveOption (data) {
 }
 
 function updateOptionStatus(data){
-    appData.qSet[data.cqIndex].optionStatus = true;
+    appData.qSet[data.cqIndex].optionStatus = data.optionStatus;
     appData.qSet[data.cqIndex].answered = true;
+    if(appData.qElapsed < 15){
+      appData.qElapsed =  appData.qElapsed + 1;
+    }
 }
 
 
 var AppStore = assign({}, EventEmitter.prototype, {
 
-  /**
-   * Get the entire collection of TODOs.
-   * @return {object}
-   */
+  
   getAll: function() {
     return appData;
   },
@@ -62,16 +65,11 @@ var AppStore = assign({}, EventEmitter.prototype, {
     this.emit(CHANGE_EVENT);
   },
 
-  /**
-   * @param {function} callback
-   */
-  addChangeListener: function(callback) {
+    addChangeListener: function(callback) {
     this.on(CHANGE_EVENT, callback);
   },
 
-  /**
-   * @param {function} callback
-   */
+  
   removeChangeListener: function(callback) {
     this.removeListener(CHANGE_EVENT, callback);
   },
@@ -103,7 +101,6 @@ var AppStore = assign({}, EventEmitter.prototype, {
         AppStore.emitChange();
         break;   
 
-      // add more cases for other actionTypes, like TODO_UPDATE, etc.
     }
 
     return true; // No errors. Needed by promise in Dispatcher.

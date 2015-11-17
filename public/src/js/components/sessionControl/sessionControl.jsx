@@ -9,12 +9,9 @@ class SessionControl extends React.Component {
   setCurrentQuestionIndex(cqIndex, answered, nxtCtrl){
     var cqIndex = Number(cqIndex);
     
-    console.log(cqIndex);
-    console.log(nxtCtrl);
-
     if(nxtCtrl) {
       if(answered) {
-        if(cqIndex<15){
+        if(cqIndex<14){
           AppViewActions.setCurrentQuestionIndex(cqIndex+1);
         }else{
           console.log("Session ended");
@@ -23,7 +20,7 @@ class SessionControl extends React.Component {
         console.log("please lock current question")
       }    
     }else {
-      if(cqIndex>=1){
+      if(cqIndex>0){
         AppViewActions.setCurrentQuestionIndex(cqIndex-1);
       }else{
         console.log("You reached first question");
@@ -33,6 +30,9 @@ class SessionControl extends React.Component {
 
 
   lockOption(cqIndex, selectedOption, solutionKey){
+
+
+
     if(selectedOption){
       if(selectedOption == solutionKey){
         AppViewActions.updateOptionStatus(cqIndex, true);

@@ -208,7 +208,7 @@ var mockJson = {
         text : 'a',
         selected: false
       },{
-        key : 'b',
+        title : 'b',
         text : 'b',
         selected: false
       },{
@@ -334,19 +334,19 @@ var mockJson = {
     text: "What is Javascript ------11",
     optionSet:[
       {
-        key : 'a',
+        title : 'a',
         text : 'a',
         selected: false
       },{
-        key : 'b',
+        title : 'b',
         text : 'b',
         selected: false
       },{
-        key : 'c',
+        title : 'c',
         text : 'c',
         selected: false
       },{
-        key : 'd',
+        title : 'd',
         text : 'd',
         selected: false
       }
