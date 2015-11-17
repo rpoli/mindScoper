@@ -5,7 +5,6 @@ class ScoreBoard extends React.Component {
   
   constructor(props) {
     super(props);
-    this.displayName = 'Score board';
   }
   
   render() {
@@ -19,8 +18,14 @@ class ScoreBoard extends React.Component {
             <ul>
               {
                 this.props.scoreData.map((nodeObj)=>{
-                  return (<ScoreNode key={nodeObj.serial} scoreObj={nodeObj}
-                    cqSerial={this.props.cqSerial}/>
+                  return (
+                    <ScoreNode
+                      key={nodeObj.serial}
+                      scoreObj={nodeObj}
+                      cqIndex={this.props.cqIndex}
+                      qElapsed={this.props.qElapsed}
+                      optionStatus={this.props.optionStatus}                      
+                    />
                   );
                 })
               }

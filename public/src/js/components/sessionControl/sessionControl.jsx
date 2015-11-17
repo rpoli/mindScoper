@@ -30,9 +30,6 @@ class SessionControl extends React.Component {
 
 
   lockOption(cqIndex, selectedOption, solutionKey){
-
-
-
     if(selectedOption){
       if(selectedOption == solutionKey){
         AppViewActions.updateOptionStatus(cqIndex, true);

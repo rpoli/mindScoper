@@ -6,15 +6,21 @@ class ScoreNode extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  checkActiveScoreStatus(qIndex, optionStatus){
+
+
+
+  }
   
   render() {
     let activeScoreArrow = ((comp)=>{
-        if(comp.props.scoreObj.active){
-          return <span aria-hidden="true" className="glyphicon glyphicon-chevron-right"></span>;
-        } else {
-         return null;
-        }
-      })(this);  
+      if(comp.props.scoreObj.active){
+        return <span aria-hidden="true" className="glyphicon glyphicon-chevron-right"></span>;
+      } else {
+       return null;
+      }
+    })(this);  
 
     return (
       <li className={classNames("score-node",this.props.cqSerial >= this.props.scoreObj.serial ? 'active':'')}>

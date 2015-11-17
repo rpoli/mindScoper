@@ -51,7 +51,20 @@ function updateOptionStatus(data){
     if(appData.qElapsed < 15){
       appData.qElapsed =  appData.qElapsed + 1;
     }
+
+    /*Update active score node*/
+
+    for(var i=0; i<appData.score.scoreJson.length; i++){
+      if(appData.score.scoreJson[i].serial == (cqIndex+1) && data.optionStatus){
+        appData.score.scoreJson[i].active = true;
+        break;
+      }
+    }
+
+
+
 }
+
 
 
 var AppStore = assign({}, EventEmitter.prototype, {

@@ -74,9 +74,8 @@ class Dashboard extends BaseReactComponent {
             optionStatus={this.getValue(this.state.cqIndex, this.state.qSet, "optionStatus")}
             answered={this.getValue(this.state.cqIndex, this.state.qSet, "answered")}
           />    
-          <ScoreBoard 
-            scoreData={this.state.score.scoreJson}
-            cqIndex={this.state.cqIndex}
+          <ScoreBoard
+            scoreData={this.state.score.scoreJson}            
           />
         </div>
       </div> 
