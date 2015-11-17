@@ -29,6 +29,7 @@ class QuestionBlock extends React.Component {
                   text={optObj.text}  
                   cqIndex={this.props.cqIndex}                  
                   selected={optObj.selected}
+                  answered={this.props.answered}
                 />
               )
             })

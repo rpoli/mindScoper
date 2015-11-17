@@ -9,8 +9,13 @@ class OptionBlock extends React.Component {
   }
   
   /*Sets selected option,option selection status in option set and question*/
-  setActiveOption(title, index, cqIndex) {    
-    AppViewActions.setActiveOption(title, index, cqIndex);
+  setActiveOption(title, index, cqIndex, answered) { 
+    if(!answered){
+      AppViewActions.setActiveOption(title, index, cqIndex);  
+    } else {
+      console.log("You answered already");
+    }   
+    
   }
 
   render() {
@@ -19,7 +24,7 @@ class OptionBlock extends React.Component {
         <div className="row">
           <div className="col-md-2 option-serial">{this.props.title}</div>
           <div className="col-md-10 option-text" 
-            onClick={this.setActiveOption.bind(this, this.props.title, this.props.index, this.props.cqIndex)}>
+            onClick={this.setActiveOption.bind(this, this.props.title, this.props.index, this.props.cqIndex, this.props.answered)}>
             {this.props.text}
           </div>
         </div>
