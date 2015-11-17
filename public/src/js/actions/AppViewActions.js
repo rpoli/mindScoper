@@ -13,24 +13,23 @@ let AppViewActions = {
   },
 
 // Set active option
-	setActiveOption : function(optionKey, optionIndex, qSerial, qKey) {
+	setActiveOption : function(title, index, cqIndex) {
 		AppDispatcher.handleViewAction({
       actionType: AppConstants.SET_ACTIVE_OPTION,
       data: {
-        optionKey : optionKey,
-      	optionIndex : optionIndex,
-      	qSerial : qSerial,
-        qKey : qKey
+        title : title,
+      	index : index,
+      	cqIndex : cqIndex        
       }
     });
 	},
 
 
-  updateOptionStatus : function(cqSerial, result){
+  updateOptionStatus : function(cqIndex, result){
     AppDispatcher.handleViewAction({
       actionType: AppConstants.UPDATE_OPTION_STATUS,
       data: {
-        cqSerial : cqSerial,
+        cqIndex : cqIndex,
         optionStatus : result        
       }
     });

@@ -6,7 +6,6 @@ class ScoreBoard extends React.Component {
   constructor(props) {
     super(props);
     this.displayName = 'Score board';
-    console.log(this.state);
   }
   
   render() {

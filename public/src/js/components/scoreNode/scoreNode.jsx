@@ -5,7 +5,6 @@ class ScoreNode extends React.Component {
   
   constructor(props) {
     super(props);
-    console.log(this.state);
   }
   
   render() {

@@ -6,22 +6,21 @@ class OptionBlock extends React.Component {
   
   constructor(props) {
     super(props);
-    console.log(props);
   }
   
-  setActiveOption(optionKey, optionIndex, qSerial, qKey) {
-    console.log(optionIndex, qSerial);
-    AppViewActions.setActiveOption(optionKey, optionIndex, qSerial, qKey);
+  /*Sets selected option,option selection status in option set and question*/
+  setActiveOption(title, index, cqIndex) {    
+    AppViewActions.setActiveOption(title, index, cqIndex);
   }
 
   render() {
     return (
-      <div className={classNames("col-md-6","option-div",this.props.optionObj.selected ? "selected" : null)}>
+      <div className={classNames("col-md-6","option-div",this.props.selected ? "selected" : null)}>
         <div className="row">
-          <div className="col-md-2 option-serial">{this.props.optionObj.key}</div>
+          <div className="col-md-2 option-serial">{this.props.title}</div>
           <div className="col-md-10 option-text" 
-            onClick={this.setActiveOption.bind(this, this.props.optionObj.key, this.props.index, this.props.qSerial, this.props.qKey)}>
-            {this.props.optionObj.text}
+            onClick={this.setActiveOption.bind(this, this.props.title, this.props.index, this.props.cqIndex)}>
+            {this.props.text}
           </div>
         </div>
       </div>

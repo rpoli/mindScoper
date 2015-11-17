@@ -5,7 +5,6 @@ class QuestionBlock extends React.Component {
   
   constructor(props) {
     super(props);
-    console.log(props);
   }
   
   render() {
@@ -22,17 +21,24 @@ class QuestionBlock extends React.Component {
         <div className="row option-section">
           {
             this.props.currentOptions.map((optObj, index)=>{
-              return (<OptionBlock key={optObj.key} optionObj={optObj}
-                index={index} 
-                qSerial={this.props.currentQuestion.serial}
-                qKey={this.props.currentQuestion.key}/>)
+              return (
+                <OptionBlock 
+                  key={index} 
+                  index={index}
+                  title={optObj.title}
+                  text={optObj.text}  
+                  cqIndex={this.props.cqIndex}                  
+                  selected={optObj.selected}
+                />
+              )
             })
           }
         </div>
-        <SessionControl cqSerial={this.props.cqSerial} 
-          qKey={this.props.qKey} 
-          selectedOption={this.props.selectedOption}
-          answerStatus={this.props.answerStatus}
+        <SessionControl 
+          cqIndex={this.props.cqIndex} 
+          solutionKey={this.props.solutionKey} 
+          selectedOption={this.props.selectedOption}          
+          answered={this.props.answered}
         />
       </div>
     );

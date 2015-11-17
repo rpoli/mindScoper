@@ -74,137 +74,137 @@ var mockJson = {
     text: "What is Javascript ---1",
     optionSet:[
       {
-        key : 'a',
+        title : 'a',
         text : 'a',
         selected: false
       },{
-        key : 'b',
+        title : 'b',
         text : 'b',
         selected: false
       },{
-        key : 'c',
+        title : 'c',
         text : 'c',
         selected: false
       },{
-        key : 'd',
+        title : 'd',
         text : 'd',
         selected: false
       }
     ],
     solutionKey: "a",
     selectedOption: null,
-    answerStatus: false,
+    answered: false,
     optionStatus: false
   },{
     serial: 2,
     text: "What is Javascript ----- 2",
      optionSet:[
       {
-        key : 'a',
+        title : 'a',
         text : 'a',
         selected: false
       },{
-        key : 'b',
+        title : 'b',
         text : 'b',
         selected: false
       },{
-        key : 'c',
+        title : 'c',
         text : 'c',
         selected: false
       },{
-        key : 'd',
+        title : 'd',
         text : 'd',
         selected: false
       }
     ],
     solutionKey: "b",
     selectedOption: null,
-    answerStatus: false,
+    answered: false,
     optionStatus: false
   },{
     serial: 3,
     text: "What is Javascript ---3",
     optionSet:[
       {
-        key : 'a',
+        title : 'a',
         text : 'a',
         selected: false
       },{
-        key : 'b',
+        title : 'b',
         text : 'b',
         selected: false
       },{
-        key : 'c',
+        title : 'c',
         text : 'c',
         selected: false
       },{
-        key : 'd',
+        title : 'd',
         text : 'd',
         selected: false
       }
     ],
     solutionKey : "c",
     selectedOption: null,
-    answerStatus: false,
+    answered: false,
     optionStatus: false
   },{
     serial: 4,
     text: "What is Javascript ------4",
     optionSet:[
       {
-        key : 'a',
+        title : 'a',
         text : 'a',
         selected: false
       },{
-        key : 'b',
+        title : 'b',
         text : 'b',
         selected: false
       },{
-        key : 'c',
+        title : 'c',
         text : 'c',
         selected: false
       },{
-        key : 'd',
+        title : 'd',
         text : 'd',
         selected: false
       }
     ],
     solutionKey : "d",
     selectedOption: null,
-    answerStatus: false,
+    answered : false,
     optionStatus: false
   },{
     serial: 5,
     text: "What is Javascript ------5",
     optionSet:[
       {
-        key : 'a',
+        title : 'a',
         text : 'a',
         selected: false
       },{
-        key : 'b',
+        title : 'b',
         text : 'b',
         selected: false
       },{
-        key : 'c',
+        title : 'c',
         text : 'c',
         selected: false
       },{
-        key : 'd',
+        title : 'd',
         text : 'd',
         selected: false
       }
     ],
     solutionKey : "a",
     selectedOption: null,
-    answerStatus: false,
+    answered: false,
     optionStatus: false
   },{
     serial: 6,
     text: "What is Javascript -----6",
     optionSet:[
       {
-        key : 'a',
+        title : 'a',
         text : 'a',
         selected: false
       },{
@@ -212,122 +212,122 @@ var mockJson = {
         text : 'b',
         selected: false
       },{
-        key : 'c',
+        title : 'c',
         text : 'c',
         selected: false
       },{
-        key : 'd',
+        title : 'd',
         text : 'd',
         selected: false
       }
     ],
     solutionKey : "b",
     selectedOption: null,
-    answerStatus: false,
+    answered: false,
     optionStatus: false
   },{
     serial: 7,
     text: "What is Javascript ------7",
     optionSet:[
       {
-        key : 'a',
+        title : 'a',
         text : 'a',
         selected: false
       },{
-        key : 'b',
+        title : 'b',
         text : 'b',
         selected: false
       },{
-        key : 'c',
+        title : 'c',
         text : 'c',
         selected: false
       },{
-        key : 'd',
+        title : 'd',
         text : 'd',
         selected: false
       }
     ],
     solutionKey : "c",
     selectedOption: null,
-    answerStatus: false,
+    answered: false,
     optionStatus: false
   },{
     serial: 8,
     text: "What is Javascript ------8",
     optionSet:[
       {
-        key : 'a',
+        title : 'a',
         text : 'a',
         selected: false
       },{
-        key : 'b',
+        title : 'b',
         text : 'b',
         selected: false
       },{
-        key : 'c',
+        title : 'c',
         text : 'c',
         selected: false
       },{
-        key : 'd',
+        title : 'd',
         text : 'd',
         selected: false
       }
     ],
     solutionKey : "d",
     selectedOption: null,
-    answerStatus: false,
+    answered: false,
     optionStatus: false 
   },{
     serial: 9,
     text: "What is Javascript -----9",
     optionSet:[
       {
-        key : 'a',
+        title : 'a',
         text : 'a',
         selected: false
       },{
-        key : 'b',
+        title : 'b',
         text : 'b',
         selected: false
       },{
-        key : 'c',
+        title : 'c',
         text : 'c',
         selected: false
       },{
-        key : 'd',
+        title : 'd',
         text : 'd',
         selected: false
       }
     ],
     solutionKey : "a",
     selectedOption: null,
-    answerStatus: false,
+    answered: false,
     optionStatus: false
   },{
     serial: 10,
     text: "What is Javascript -----10",
     optionSet:[
       {
-        key : 'a',
+        title : 'a',
         text : 'a',
         selected: false
       },{
-        key : 'b',
+        title : 'b',
         text : 'b',
         selected: false
       },{
-        key : 'c',
+        title : 'c',
         text : 'c',
         selected: false
       },{
-        key : 'd',
+        title : 'd',
         text : 'd',
         selected: false
       }
     ],
     solutionKey : "b",
     selectedOption: null,
-    answerStatus: false,
+    answered: false,
     optionStatus: false
   },{
     serial: 11,
@@ -353,111 +353,111 @@ var mockJson = {
     ],
     solutionKey : "c",
     selectedOption: null,
-    answerStatus: false,
+    answered: false,
     optionStatus: false
   },{
     serial: 12,
     text: "What is Javascript --------12",
     optionSet:[
       {
-        key : 'a',
+        title : 'a',
         text : 'a',
         selected: false
       },{
-        key : 'b',
+        title : 'b',
         text : 'b',
         selected: false
       },{
-        key : 'c',
+        title : 'c',
         text : 'c',
         selected: false
       },{
-        key : 'd',
+        title : 'd',
         text : 'd',
         selected: false
       }
     ],
     solutionKey : "d",
     selectedOption: null,
-    answerStatus: false,
+    answered: false,
     optionStatus: false
   },{
     serial: 13,
     text: "What is Javascript -------13",
     optionSet:[
       {
-        key : 'a',
+        title : 'a',
         text : 'a',
         selected: false
       },{
-        key : 'b',
+        title : 'b',
         text : 'b',
         selected: false
       },{
-        key : 'c',
+        title : 'c',
         text : 'c',
         selected: false
       },{
-        key : 'd',
+        title : 'd',
         text : 'd',
         selected: false
       }
     ],
     solutionKey : "a",
     selectedOption: null,
-    answerStatus: false,
+    answered: false,
     optionStatus: false
   },{
     serial: 14,
     text: "What is Javascript ------14",
     optionSet:[
       {
-        key : 'a',
+        title : 'a',
         text : 'a',
         selected: false
       },{
-        key : 'b',
+        title : 'b',
         text : 'b',
         selected: false
       },{
-        key : 'c',
+        title : 'c',
         text : 'c',
         selected: false
       },{
-        key : 'd',
+        title : 'd',
         text : 'd',
         selected: false
       }
     ],
     solutionKey : "b",
     selectedOption: null,
-    answerStatus: false,
+    answered: false,
     optionStatus: false
   },{
     serial: 15,
     text: "What is Javascript -----15",
     optionSet:[
       {
-        key : 'a',
+        title : 'a',
         text : 'a',
         selected: false
       },{
-        key : 'b',
+        title : 'b',
         text : 'b',
         selected: false
       },{
-        key : 'c',
+        title : 'c',
         text : 'c',
         selected: false
       },{
-        key : 'd',
+        title : 'd',
         text : 'd',
         selected: false
       }
     ],
     solutionKey : "c",
     selectedOption: null,
-    answerStatus: false,
+    answered: false,
     optionStatus: false
   }]
 };

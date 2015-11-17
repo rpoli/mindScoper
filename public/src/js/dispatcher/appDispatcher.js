@@ -1,8 +1,6 @@
 var Dispatcher = require('flux').Dispatcher;
 var assign = require('object-assign');
 
-console.log(new Dispatcher());
-
 const AppDispatcher = assign(new Dispatcher(), {
 
   /**
@@ -25,7 +23,5 @@ const AppDispatcher = assign(new Dispatcher(), {
   }
 
 });
-
-  console.log(AppDispatcher)
 
 export default AppDispatcher;

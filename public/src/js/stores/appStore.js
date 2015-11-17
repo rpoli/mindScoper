@@ -19,7 +19,7 @@ var appData = {
     scoreJson : dataJson.score.scoreJson.reverse()
   },
   qSet: dataJson.qSet,
-  cqSerial: 1,
+  cqIndex: 0,
   qElapsed: 0
 }; 
 
@@ -33,20 +33,18 @@ function setQuestionsElapsed(data) {
 
 function setActiveOption (data) {
   
-  console.log("hello")
-  console.log(data);
-  for(var i=0; i<appData.qSet[data.qSerial-1].optionSet.length; i++){
-      appData.qSet[data.qSerial-1].optionSet[i].selected = false;    
+  for(var i=0; i<appData.qSet[data.cqIndex].optionSet.length; i++){
+      appData.qSet[data.cqIndex].optionSet[i].selected = false;    
   }
-  appData.qSet[data.qSerial-1].optionSet[data.optionIndex].selected = true;
-    console.log(data.optionKey);
-  appData.selectedOption = data.optionKey;
-  appData.qKey = data.qKey;    
+
+  appData.qSet[data.cqIndex].optionSet[data.index].selected = true;  
+  appData.qSet[data.cqIndex].selectedOption = data.title;
+
 }
 
 function updateOptionStatus(data){
-   appData.qSet[data.cqSerial-1].optionStatus = data.optionStatus;
-   appData.qSet[data.cqSerial-1].answerStatus = true;
+    appData.qSet[data.cqIndex].optionStatus = true;
+    appData.qSet[data.cqIndex].answered = true;
 }
 
 

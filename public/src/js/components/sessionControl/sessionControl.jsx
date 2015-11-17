@@ -4,7 +4,6 @@ class SessionControl extends React.Component {
   
   constructor(props) {
     super(props);
-    console.log(props);
   }
   
   setPreviousQuestionSerial(cqSerial) {
@@ -16,8 +15,6 @@ class SessionControl extends React.Component {
 
   setNextQuestionSerial(cqSerial, answerStatus) {
 
-    console.log(answerStatus);
-
     var cqSerial = Number(cqSerial);
     if(cqSerial<15){
       AppViewActions.setCurrentQuestionSerial(cqSerial+1);
@@ -28,13 +25,12 @@ class SessionControl extends React.Component {
 
   }
 
-  lockOption(cqSerial, qKey, selectedOption){
-    console.log(cqSerial, qKey, selectedOption);
+  lockOption(cqIndex, selectedOption, solutionKey){
     if(selectedOption){
       if(selectedOption == qKey){
-        AppViewActions.updateOptionStatus(cqSerial, true);
+        AppViewActions.updateOptionStatus(cqIndex, true);
       }else{
-        AppViewActions.updateOptionStatus(cqSerial, false);
+        AppViewActions.updateOptionStatus(cqIndex, false);
       }
     }else{
       console.log("please choose option");
@@ -52,14 +48,13 @@ class SessionControl extends React.Component {
         </div>
         <div className='col-md-2'>
           <button type="button" className="btn btn-primary evn-btn" 
-          onClick={this.lockOption.bind(this,this.props.cqSerial, this.props.qKey, this.props.selectedOption)}
-          >Lock
+            onClick={this.lockOption.bind(this,this.props.cqIndex, this.props.selectedOption, this.props.solutionKey)}>Lock
             <span className="glyphicon glyphicon-lock" aria-hidden="true"></span>
           </button>
         </div>
         <div className='col-md-2'>
           <button type="button" className="evn-btn btn btn-primary"
-          onClick={this.setNextQuestionSerial.bind(this, this.props.cqSerial, this.props.answerStatus)}>Next
+            onClick={this.setNextQuestionSerial.bind(this, this.props.cqSerial)}>Next
             <span aria-hidden="true" className="glyphicon glyphicon-chevron-right next-btn"></span>
           </button>
         </div>
