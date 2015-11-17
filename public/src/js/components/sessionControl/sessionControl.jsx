@@ -6,28 +6,35 @@ class SessionControl extends React.Component {
     super(props);
   }
   
-  setPreviousQuestionSerial(cqSerial) {
-    var cqSerial = Number(cqSerial);
-    if(cqSerial>1){
-      AppViewActions.setCurrentQuestionSerial(cqSerial-1);
+  setCurrentQuestionIndex(cqIndex, answered, nxtCtrl){
+    var cqIndex = Number(cqIndex);
+    
+    console.log(cqIndex);
+    console.log(nxtCtrl);
+
+    if(nxtCtrl) {
+      if(answered) {
+        if(cqIndex<15){
+          AppViewActions.setCurrentQuestionIndex(cqIndex+1);
+        }else{
+          console.log("Session ended");
+        }
+      }else{
+        console.log("please lock current question")
+      }    
+    }else {
+      if(cqIndex>=1){
+        AppViewActions.setCurrentQuestionIndex(cqIndex-1);
+      }else{
+        console.log("You reached first question");
+      }
     }
   }
 
-  setNextQuestionSerial(cqSerial, answerStatus) {
-
-    var cqSerial = Number(cqSerial);
-    if(cqSerial<15){
-      AppViewActions.setCurrentQuestionSerial(cqSerial+1);
-    }
-  }
-
-  animateSelectedOption(){
-
-  }
 
   lockOption(cqIndex, selectedOption, solutionKey){
     if(selectedOption){
-      if(selectedOption == qKey){
+      if(selectedOption == solutionKey){
         AppViewActions.updateOptionStatus(cqIndex, true);
       }else{
         AppViewActions.updateOptionStatus(cqIndex, false);
@@ -42,7 +49,7 @@ class SessionControl extends React.Component {
       <div className='row user-controls'>
         <div className='col-md-2 col-md-offset-3'>
           <button type="button" className="evn-btn btn btn-primary" 
-            onClick={this.setPreviousQuestionSerial.bind(this, this.props.cqSerial)}>
+            onClick={this.setCurrentQuestionIndex.bind(this, this.props.cqIndex, this.props.answered, false)}>
             <span aria-hidden="true" className="glyphicon glyphicon-chevron-left prev-btn"></span>Previous
           </button>
         </div>
@@ -54,7 +61,7 @@ class SessionControl extends React.Component {
         </div>
         <div className='col-md-2'>
           <button type="button" className="evn-btn btn btn-primary"
-            onClick={this.setNextQuestionSerial.bind(this, this.props.cqSerial)}>Next
+            onClick={this.setCurrentQuestionIndex.bind(this, this.props.cqIndex, this.props.answered, true)}>Next
             <span aria-hidden="true" className="glyphicon glyphicon-chevron-right next-btn"></span>
           </button>
         </div>

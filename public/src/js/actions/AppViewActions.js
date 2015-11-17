@@ -5,10 +5,10 @@ import AppConstants from 'constants/appConstants';
 let AppViewActions = {
 
 // Set current question serial
-  setCurrentQuestionSerial: function(serial){
+  setCurrentQuestionIndex: function(index){
     AppDispatcher.handleViewAction({
-      actionType: AppConstants.SET_CURRENT_QUESTION_SERIAL,
-      data: serial
+      actionType: AppConstants.SET_CURRENT_QUESTION_INDEX,
+      data: index
     });
   },
 

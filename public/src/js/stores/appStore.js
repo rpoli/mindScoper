@@ -23,8 +23,8 @@ var appData = {
   qElapsed: 0
 }; 
 
-function setCurrentQuestionSerial(data) {
-  appData.cqSerial = data;
+function setCurrentQuestionIndex(data) {
+  appData.cqIndex = data;
 }
 
 function setQuestionsElapsed(data) {
@@ -83,9 +83,9 @@ var AppStore = assign({}, EventEmitter.prototype, {
     var data;
 
     switch(action.actionType) {
-      case AppConstants.SET_CURRENT_QUESTION_SERIAL:
+      case AppConstants.SET_CURRENT_QUESTION_INDEX:
         data = action.data;
-        setCurrentQuestionSerial(data)
+        setCurrentQuestionIndex(data)
         AppStore.emitChange();
         break;
 
