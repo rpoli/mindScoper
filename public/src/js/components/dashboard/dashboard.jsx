@@ -63,7 +63,7 @@ class Dashboard extends BaseReactComponent {
   render() {
     return (
       <div className="container-fluid">
-        <Score currentScore = {this.state.score.currentScore}/>
+        <Score currentScore = {this.state.score.totalScore}/>
         <div className="row">
           <QuestionBlock 
             cqIndex={this.state.cqIndex}

@@ -41,6 +41,15 @@ let AppViewActions = {
         cqIndex : cqIndex
       }
     });
+  },
+
+  updateTotalScore : function(cqIndex) {
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.UPDATE_TOTAL_SCORE,
+      data: {
+        cqIndex : cqIndex
+      }
+    });
   }
 };
 

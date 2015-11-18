@@ -9,13 +9,13 @@ var CHANGE_EVENT = 'change';
 
 var appData = {
   user: {
-    name: "Ramesh Polishetti"  
+    name: "Ram Polishetti"  
   },
   session: {
     id: "AA12"
   },
   score : {
-    currentScore : 0,
+    totalScore : 0,
     scoreJson : dataJson.score.scoreJson.reverse()
   },
   qSet: dataJson.qSet,
@@ -52,9 +52,14 @@ function updateOptionStatus(data){
 
 function updateActiveScore (data) {
   /*Update active score node*/
-  console.log(data.cqIndex);
   appData.score.scoreJson[appData.score.scoreJson.length-1-data.cqIndex].active = true;
 }
+
+function updateTotalScore (data) {
+  var currentScore = Number(appData.score.scoreJson[appData.score.scoreJson.length-1-data.cqIndex].value);
+  appData.score.totalScore = appData.score.totalScore+currentScore;
+}
+
 
 var AppStore = assign({}, EventEmitter.prototype, {
   
@@ -105,6 +110,10 @@ var AppStore = assign({}, EventEmitter.prototype, {
       case AppConstants.UPDATE_ACTIVE_SCORE :
         updateActiveScore(data);
         break;
+
+      case AppConstants.UPDATE_TOTAL_SCORE :
+        updateTotalScore(data);
+        break;  
     }
 
     return true; // No errors. Needed by promise in Dispatcher.

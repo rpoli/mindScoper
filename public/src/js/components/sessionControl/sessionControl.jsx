@@ -29,12 +29,13 @@ class SessionControl extends React.Component {
   }
 
 
-  lockOption(cqIndex, selectedOption, solutionKey){
-    if(selectedOption){
-      if(selectedOption == solutionKey){
+  lockOption(cqIndex, selectedOption, solutionKey) {
+    if(selectedOption) {
+      if(selectedOption == solutionKey) {
         AppViewActions.updateActiveScore(cqIndex);
+        AppViewActions.updateTotalScore( cqIndex );
         AppViewActions.updateOptionStatus(cqIndex, true);
-
+        
       }else{
         AppViewActions.updateOptionStatus(cqIndex, false);
       }

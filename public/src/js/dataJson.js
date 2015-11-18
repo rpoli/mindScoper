@@ -1,6 +1,6 @@
 var mockJson = {
   user: {
-    name: "Ramesh Polishetti"
+    name: "Ram Polishetti"
   },
   session: {
     id: "AA12"
