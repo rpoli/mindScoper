@@ -20,7 +20,7 @@ class OptionBlock extends React.Component {
   render() {
     return (
       <div className={classNames("col-md-6","option-div",this.props.selected ? "selected" : null, this.props.animationStatus ? "animate" : null,
-        this.props.optionStatus ? "passed" : null, this.props.optionFailed ? "failed" : null)}>
+        this.props.optionPassed ? "passed" : null, this.props.optionFailed ? "failed" : null)}>
         <div className="row">
           <div className="col-md-2 option-serial">{this.props.title}</div>
           <div className="col-md-10 option-text" 

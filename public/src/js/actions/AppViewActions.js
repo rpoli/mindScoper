@@ -63,14 +63,26 @@ let AppViewActions = {
     });
   },
 
-  updateOptionFailed : function (cqIndex, optionFailed) {
-    
-    console.log(cqIndex, optionFailed)
+  updateOptionPassed : function (cqIndex,selectedOptionIndex, optionPassed ){
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.UPDATE_OPTION_PASSED,
+      data: {
+        cqIndex : cqIndex,
+        selectedOptionIndex : selectedOptionIndex,
+        optionPassed : optionPassed
+      }
+    });
 
+  },
+
+
+  updateOptionFailed : function (cqIndex,selectedOptionIndex, optionFailed) {
+    
     AppDispatcher.handleViewAction({
       actionType: AppConstants.UPDATE_OPTION_FAILED,
       data: {
         cqIndex : cqIndex,
+        selectedOptionIndex : selectedOptionIndex,
         optionFailed : optionFailed
       }
     }); 

@@ -30,9 +30,10 @@ class QuestionBlock extends React.Component {
                   cqIndex={this.props.cqIndex}                  
                   selected={optObj.selected}
                   answered={this.props.answered}
-                  optionStatus={this.props.optionStatus}
-                  optionFailed={this.props.optionFailed}
+                  optionStatus={this.props.optionStatus}                  
                   animationStatus={optObj.animationStatus}
+                  optionPassed={optObj.optionPassed}
+                  optionFailed={optObj.optionFailed}
                 />
               )
             })

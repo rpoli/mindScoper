@@ -68,8 +68,12 @@ function updateAnimationStatus (data) {
   appData.qSet[data.cqIndex].optionSet[data.selectedOptionIndex].animationStatus = data.animationStatus;
 }
 
+function updateOptionPassed (data) {
+ appData.qSet[data.cqIndex].optionSet[data.selectedOptionIndex].optionPassed = data.optionPassed; 
+}
+
 function updateOptionFailed(data){
-  appData.qSet[data.cqIndex].optionFailed = data.optionFailed;
+  appData.qSet[data.cqIndex].optionSet[data.selectedOptionIndex].optionFailed = data.optionFailed; 
 }
 
 
@@ -132,9 +136,14 @@ var AppStore = assign({}, EventEmitter.prototype, {
         AppStore.emitChange();
         break;
 
+      case AppConstants.UPDATE_OPTION_PASSED :
+        updateOptionPassed(data);        
+        break;
+
       case AppConstants.UPDATE_OPTION_FAILED :
         updateOptionFailed(data);        
         break;
+          
     }
 
     return true; // No errors. Needed by promise in Dispatcher.

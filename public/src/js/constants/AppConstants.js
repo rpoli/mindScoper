@@ -7,5 +7,6 @@ export default keyMirror({
   UPDATE_ACTIVE_SCORE : null,
   UPDATE_TOTAL_SCORE : null,
   UPDATE_ANIMATION_STATUS : null,
+  UPDATE_OPTION_PASSED : null,
   UPDATE_OPTION_FAILED : null
 });

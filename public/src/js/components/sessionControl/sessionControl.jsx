@@ -39,13 +39,14 @@ class SessionControl extends React.Component {
     setTimeout(function(){
       AppViewActions.updateAnimationStatus(cqIndex, selectedOptionIndex, false);
      
-        if(selectedOption == solutionKey) {          
+        if(selectedOption == solutionKey) {  
+          AppViewActions.updateOptionPassed(cqIndex, selectedOptionIndex, true)        
           AppViewActions.updateActiveScore(cqIndex);
           AppViewActions.updateTotalScore( cqIndex );
           AppViewActions.updateOptionStatus(cqIndex, true);
           
         }else{
-          AppViewActions.updateOptionFailed(cqIndex, true)
+          AppViewActions.updateOptionFailed(cqIndex, selectedOptionIndex, true)
           AppViewActions.updateOptionStatus(cqIndex, false);
 
         }

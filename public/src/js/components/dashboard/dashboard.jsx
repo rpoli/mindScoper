@@ -57,8 +57,6 @@ class Dashboard extends BaseReactComponent {
         return qSet[cqIndex].answered;
       case "selectedOptionIndex" :
         return qSet[cqIndex].selectedOptionIndex;  
-      case "optionFailed" :
-        return qSet[cqIndex].optionFailed;  
       default :
         return; 
     }
@@ -77,8 +75,7 @@ class Dashboard extends BaseReactComponent {
             selectedOption={this.getValue(this.state.cqIndex, this.state.qSet, "selectedOption")}
             selectedOptionIndex={this.getValue(this.state.cqIndex, this.state.qSet, "selectedOptionIndex")}                        
             optionStatus={this.getValue(this.state.cqIndex, this.state.qSet, "optionStatus")}
-            answered={this.getValue(this.state.cqIndex, this.state.qSet, "answered")}
-            optionFailed={this.getValue(this.state.cqIndex, this.state.qSet, "optionFailed")}
+            answered={this.getValue(this.state.cqIndex, this.state.qSet, "answered")}       
           />    
           <ScoreBoard
             scoreData={this.state.score.scoreJson}            
