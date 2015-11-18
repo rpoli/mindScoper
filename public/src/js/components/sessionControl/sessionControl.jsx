@@ -29,19 +29,31 @@ class SessionControl extends React.Component {
   }
 
 
-  lockOption(cqIndex, selectedOption, solutionKey) {
-    if(selectedOption) {
-      if(selectedOption == solutionKey) {
-        AppViewActions.updateActiveScore(cqIndex);
-        AppViewActions.updateTotalScore( cqIndex );
-        AppViewActions.updateOptionStatus(cqIndex, true);
-        
+
+
+  lockOption(cqIndex, selectedOption, selectedOptionIndex, solutionKey) {
+
+     if(selectedOption) {
+    AppViewActions.updateAnimationStatus(cqIndex, selectedOptionIndex, true);
+    
+    setTimeout(function(){
+      AppViewActions.updateAnimationStatus(cqIndex, selectedOptionIndex, false);
+     
+        if(selectedOption == solutionKey) {          
+          AppViewActions.updateActiveScore(cqIndex);
+          AppViewActions.updateTotalScore( cqIndex );
+          AppViewActions.updateOptionStatus(cqIndex, true);
+          
+        }else{
+          AppViewActions.updateOptionFailed(cqIndex, true)
+          AppViewActions.updateOptionStatus(cqIndex, false);
+
+        }
+         },5000)
       }else{
-        AppViewActions.updateOptionStatus(cqIndex, false);
+        console.log("please choose option");
       }
-    }else{
-      console.log("please choose option");
-    }
+ 
   }
 
   render() {
@@ -55,7 +67,7 @@ class SessionControl extends React.Component {
         </div>
         <div className='col-md-2'>
           <button type="button" className="btn btn-primary evn-btn" 
-            onClick={this.lockOption.bind(this,this.props.cqIndex, this.props.selectedOption, this.props.solutionKey)}>Lock
+            onClick={this.lockOption.bind(this,this.props.cqIndex, this.props.selectedOption,this.props.selectedOptionIndex, this.props.solutionKey)}>Lock
             <span className="glyphicon glyphicon-lock" aria-hidden="true"></span>
           </button>
         </div>

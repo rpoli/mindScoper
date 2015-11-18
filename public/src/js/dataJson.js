@@ -76,25 +76,31 @@ var mockJson = {
       {
         title : 'a',
         text : 'a',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'b',
         text : 'b',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'c',
         text : 'c',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'd',
         text : 'd',
-        selected: false
+        selected: false,
+        animationStatus : false
       }
     ],
     solutionKey: "a",
     selectedOption: null,
+    selectedOptionIndex: null,
     answered: false,
-    optionStatus: false
+    optionStatus : false,
+    optionFailed : false
   },{
     serial: 2,
     text: "What is Javascript ----- 2",
@@ -102,25 +108,31 @@ var mockJson = {
       {
         title : 'a',
         text : 'a',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'b',
         text : 'b',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'c',
         text : 'c',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'd',
         text : 'd',
-        selected: false
+        selected: false,
+        animationStatus : false
       }
     ],
     solutionKey: "b",
     selectedOption: null,
+    selectedOptionIndex: null,
     answered: false,
-    optionStatus: false
+    optionStatus: false,
+    optionFailed : false
   },{
     serial: 3,
     text: "What is Javascript ---3",
@@ -128,25 +140,31 @@ var mockJson = {
       {
         title : 'a',
         text : 'a',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'b',
         text : 'b',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'c',
         text : 'c',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'd',
         text : 'd',
-        selected: false
+        selected: false,
+        animationStatus : false
       }
     ],
     solutionKey : "c",
     selectedOption: null,
+    selectedOptionIndex: null,
     answered: false,
-    optionStatus: false
+    optionStatus: false,
+    optionFailed : false
   },{
     serial: 4,
     text: "What is Javascript ------4",
@@ -154,25 +172,31 @@ var mockJson = {
       {
         title : 'a',
         text : 'a',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'b',
         text : 'b',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'c',
         text : 'c',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'd',
         text : 'd',
-        selected: false
+        selected: false,
+        animationStatus : false
       }
     ],
     solutionKey : "d",
     selectedOption: null,
+    selectedOptionIndex: null,
     answered : false,
-    optionStatus: false
+    optionStatus: false,
+    optionFailed : false
   },{
     serial: 5,
     text: "What is Javascript ------5",
@@ -180,25 +204,31 @@ var mockJson = {
       {
         title : 'a',
         text : 'a',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'b',
         text : 'b',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'c',
         text : 'c',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'd',
         text : 'd',
-        selected: false
+        selected: false,
+        animationStatus : false
       }
     ],
     solutionKey : "a",
     selectedOption: null,
+    selectedOptionIndex: null,
     answered: false,
-    optionStatus: false
+    optionStatus: false,
+    optionFailed : false
   },{
     serial: 6,
     text: "What is Javascript -----6",
@@ -206,25 +236,31 @@ var mockJson = {
       {
         title : 'a',
         text : 'a',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'b',
         text : 'b',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'c',
         text : 'c',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'd',
         text : 'd',
-        selected: false
+        selected: false,
+        animationStatus : false
       }
     ],
     solutionKey : "b",
     selectedOption: null,
+    selectedOptionIndex: null,
     answered: false,
-    optionStatus: false
+    optionStatus: false,
+    optionFailed : false
   },{
     serial: 7,
     text: "What is Javascript ------7",
@@ -232,25 +268,31 @@ var mockJson = {
       {
         title : 'a',
         text : 'a',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'b',
         text : 'b',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'c',
         text : 'c',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'd',
         text : 'd',
-        selected: false
+        selected: false,
+        animationStatus : false
       }
     ],
     solutionKey : "c",
     selectedOption: null,
+    selectedOptionIndex: null,
     answered: false,
-    optionStatus: false
+    optionStatus: false,
+    optionFailed : false
   },{
     serial: 8,
     text: "What is Javascript ------8",
@@ -258,25 +300,31 @@ var mockJson = {
       {
         title : 'a',
         text : 'a',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'b',
         text : 'b',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'c',
         text : 'c',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'd',
         text : 'd',
-        selected: false
+        selected: false,
+        animationStatus : false
       }
     ],
     solutionKey : "d",
     selectedOption: null,
+    selectedOptionIndex: null,
     answered: false,
-    optionStatus: false 
+    optionStatus: false,
+    optionFailed : false 
   },{
     serial: 9,
     text: "What is Javascript -----9",
@@ -284,25 +332,31 @@ var mockJson = {
       {
         title : 'a',
         text : 'a',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'b',
         text : 'b',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'c',
         text : 'c',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'd',
         text : 'd',
-        selected: false
+        selected: false,
+        animationStatus : false
       }
     ],
     solutionKey : "a",
     selectedOption: null,
+    selectedOptionIndex: null,
     answered: false,
-    optionStatus: false
+    optionStatus: false,
+    optionFailed : false
   },{
     serial: 10,
     text: "What is Javascript -----10",
@@ -310,25 +364,31 @@ var mockJson = {
       {
         title : 'a',
         text : 'a',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'b',
         text : 'b',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'c',
         text : 'c',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'd',
         text : 'd',
-        selected: false
+        selected: false,
+        animationStatus : false
       }
     ],
     solutionKey : "b",
     selectedOption: null,
+    selectedOptionIndex: null,
     answered: false,
-    optionStatus: false
+    optionStatus: false,
+    optionFailed : false
   },{
     serial: 11,
     text: "What is Javascript ------11",
@@ -336,25 +396,31 @@ var mockJson = {
       {
         title : 'a',
         text : 'a',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'b',
         text : 'b',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'c',
         text : 'c',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'd',
         text : 'd',
-        selected: false
+        selected: false,
+        animationStatus : false
       }
     ],
     solutionKey : "c",
     selectedOption: null,
+    selectedOptionIndex: null,
     answered: false,
-    optionStatus: false
+    optionStatus: false,
+    optionFailed : false
   },{
     serial: 12,
     text: "What is Javascript --------12",
@@ -362,25 +428,31 @@ var mockJson = {
       {
         title : 'a',
         text : 'a',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'b',
         text : 'b',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'c',
         text : 'c',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'd',
         text : 'd',
-        selected: false
+        selected: false,
+        animationStatus : false
       }
     ],
     solutionKey : "d",
     selectedOption: null,
+    selectedOptionIndex: null,
     answered: false,
-    optionStatus: false
+    optionStatus: false,
+    optionFailed : false
   },{
     serial: 13,
     text: "What is Javascript -------13",
@@ -388,25 +460,31 @@ var mockJson = {
       {
         title : 'a',
         text : 'a',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'b',
         text : 'b',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'c',
         text : 'c',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'd',
         text : 'd',
-        selected: false
+        selected: false,
+        animationStatus : false
       }
     ],
     solutionKey : "a",
     selectedOption: null,
+    selectedOptionIndex: null,
     answered: false,
-    optionStatus: false
+    optionStatus: false,
+    optionFailed : false
   },{
     serial: 14,
     text: "What is Javascript ------14",
@@ -414,25 +492,31 @@ var mockJson = {
       {
         title : 'a',
         text : 'a',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'b',
         text : 'b',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'c',
         text : 'c',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'd',
         text : 'd',
-        selected: false
+        selected: false,
+        animationStatus : false
       }
     ],
     solutionKey : "b",
     selectedOption: null,
+    selectedOptionIndex: null,
     answered: false,
-    optionStatus: false
+    optionStatus: false,
+    optionFailed : false
   },{
     serial: 15,
     text: "What is Javascript -----15",
@@ -440,25 +524,31 @@ var mockJson = {
       {
         title : 'a',
         text : 'a',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'b',
         text : 'b',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'c',
         text : 'c',
-        selected: false
+        selected: false,
+        animationStatus : false
       },{
         title : 'd',
         text : 'd',
-        selected: false
+        selected: false,
+        animationStatus : false
       }
     ],
     solutionKey : "c",
     selectedOption: null,
+    selectedOptionIndex: null,
     answered: false,
-    optionStatus: false
+    optionStatus: false,
+    optionFailed : false
   }]
 };
 

@@ -50,6 +50,30 @@ let AppViewActions = {
         cqIndex : cqIndex
       }
     });
+  },
+
+  updateAnimationStatus : function(cqIndex, selectedOptionIndex, animationStatus){
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.UPDATE_ANIMATION_STATUS,
+      data: {
+        cqIndex : cqIndex,
+        selectedOptionIndex : selectedOptionIndex,
+        animationStatus : animationStatus
+      }
+    });
+  },
+
+  updateOptionFailed : function (cqIndex, optionFailed) {
+    
+    console.log(cqIndex, optionFailed)
+
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.UPDATE_OPTION_FAILED,
+      data: {
+        cqIndex : cqIndex,
+        optionFailed : optionFailed
+      }
+    }); 
   }
 };
 

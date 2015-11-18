@@ -39,6 +39,7 @@ function setActiveOption (data) {
 
   appData.qSet[data.cqIndex].optionSet[data.index].selected = true;  
   appData.qSet[data.cqIndex].selectedOption = data.title;
+  appData.qSet[data.cqIndex].selectedOptionIndex = data.index;
 
 }
 
@@ -58,6 +59,17 @@ function updateActiveScore (data) {
 function updateTotalScore (data) {
   var currentScore = Number(appData.score.scoreJson[appData.score.scoreJson.length-1-data.cqIndex].value);
   appData.score.totalScore = currentScore;
+}
+
+function updateAnimationStatus (data) {
+
+  console.log(data);
+
+  appData.qSet[data.cqIndex].optionSet[data.selectedOptionIndex].animationStatus = data.animationStatus;
+}
+
+function updateOptionFailed(data){
+  appData.qSet[data.cqIndex].optionFailed = data.optionFailed;
 }
 
 
@@ -113,7 +125,16 @@ var AppStore = assign({}, EventEmitter.prototype, {
 
       case AppConstants.UPDATE_TOTAL_SCORE :
         updateTotalScore(data);
-        break;  
+        break;
+
+      case AppConstants.UPDATE_ANIMATION_STATUS :
+        updateAnimationStatus(data);
+        AppStore.emitChange();
+        break;
+
+      case AppConstants.UPDATE_OPTION_FAILED :
+        updateOptionFailed(data);        
+        break;
     }
 
     return true; // No errors. Needed by promise in Dispatcher.

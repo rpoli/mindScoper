@@ -30,6 +30,9 @@ class QuestionBlock extends React.Component {
                   cqIndex={this.props.cqIndex}                  
                   selected={optObj.selected}
                   answered={this.props.answered}
+                  optionStatus={this.props.optionStatus}
+                  optionFailed={this.props.optionFailed}
+                  animationStatus={optObj.animationStatus}
                 />
               )
             })
@@ -38,7 +41,8 @@ class QuestionBlock extends React.Component {
         <SessionControl 
           cqIndex={this.props.cqIndex} 
           solutionKey={this.props.solutionKey} 
-          selectedOption={this.props.selectedOption}          
+          selectedOption={this.props.selectedOption}
+          selectedOptionIndex={this.props.selectedOptionIndex}          
           answered={this.props.answered}
           optionStatus={this.props.optionStatus}
         />

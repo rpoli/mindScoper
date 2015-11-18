@@ -1,0 +1,39 @@
+
+			
+@-webkit-keyframes optionTransition {   
+  25% { background-color: #009900; }
+		50% { background-color: #b34700; }
+  75% { background-color: #009900; }  
+  100% { background-color: #b34700; }
+}
+
+@-moz-keyframes optionTransition {   
+  25% { background-color: #009900; }
+		50% { background-color: #b34700; }
+  75% { background-color: #009900; }  
+  100% { background-color: #b34700; }
+}
+
+@-o-keyframes optionTransition {   
+  25% { background-color: #009900; }
+		50% { background-color: #b34700; }
+  75% { background-color: #009900; }  
+  100% { background-color: #b34700; }
+}
+
+@keyframes optionTransition {   
+  25% { background-color: #009900; }
+		50% { background-color: #b34700; }
+  75% { background-color: #009900; }  
+  100% { background-color: #b34700; }
+}
+
+
+.option-div{
+	&.animate{
+			-webkit-animation: optionTransition 3s infinite;
+			-moz-animation: optionTransition 3s infinite;
+			-o-animation: optionTransition 3s infinite;
+			animation: optionTransition 3s infinite;			 
+		}
+}
