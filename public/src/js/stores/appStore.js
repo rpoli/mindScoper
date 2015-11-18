@@ -57,7 +57,7 @@ function updateActiveScore (data) {
 
 function updateTotalScore (data) {
   var currentScore = Number(appData.score.scoreJson[appData.score.scoreJson.length-1-data.cqIndex].value);
-  appData.score.totalScore = appData.score.totalScore+currentScore;
+  appData.score.totalScore = currentScore;
 }
 
 
