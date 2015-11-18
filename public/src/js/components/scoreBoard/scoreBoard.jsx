@@ -21,10 +21,9 @@ class ScoreBoard extends React.Component {
                   return (
                     <ScoreNode
                       key={nodeObj.serial}
-                      scoreObj={nodeObj}
-                      cqIndex={this.props.cqIndex}
-                      qElapsed={this.props.qElapsed}
-                      optionStatus={this.props.optionStatus}                      
+                      active={nodeObj.active}
+                      serial={nodeObj.serial}
+                      value={nodeObj.value}                     
                     />
                   );
                 })

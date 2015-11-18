@@ -40,6 +40,7 @@ class QuestionBlock extends React.Component {
           solutionKey={this.props.solutionKey} 
           selectedOption={this.props.selectedOption}          
           answered={this.props.answered}
+          optionStatus={this.props.optionStatus}
         />
       </div>
     );

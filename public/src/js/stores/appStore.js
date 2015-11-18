@@ -33,9 +33,6 @@ function setQuestionsElapsed(data) {
 
 function setActiveOption (data) {
   
-    console.log(data);
-    console.log("q");
-
   for(var i=0; i<appData.qSet[data.cqIndex].optionSet.length; i++){
       appData.qSet[data.cqIndex].optionSet[i].selected = false;    
   }
@@ -46,29 +43,20 @@ function setActiveOption (data) {
 }
 
 function updateOptionStatus(data){
-    appData.qSet[data.cqIndex].optionStatus = data.optionStatus;
-    appData.qSet[data.cqIndex].answered = true;
-    if(appData.qElapsed < 15){
-      appData.qElapsed =  appData.qElapsed + 1;
-    }
-
-    /*Update active score node*/
-
-    for(var i=0; i<appData.score.scoreJson.length; i++){
-      if(appData.score.scoreJson[i].serial == (cqIndex+1) && data.optionStatus){
-        appData.score.scoreJson[i].active = true;
-        break;
-      }
-    }
-
-
-
+  appData.qSet[data.cqIndex].optionStatus = data.optionStatus;
+  appData.qSet[data.cqIndex].answered = true;
+  if(appData.qElapsed < 15){
+    appData.qElapsed =  appData.qElapsed + 1;
+  }
 }
 
-
+function updateActiveScore (data) {
+  /*Update active score node*/
+  console.log(data.cqIndex);
+  appData.score.scoreJson[appData.score.scoreJson.length-1-data.cqIndex].active = true;
+}
 
 var AppStore = assign({}, EventEmitter.prototype, {
-
   
   getAll: function() {
     return appData;
@@ -90,30 +78,33 @@ var AppStore = assign({}, EventEmitter.prototype, {
  
 
   dispatcherIndex: AppDispatcher.register(function(payload) {
-    var action = payload.action;
-    var data;
+    var actionType = payload.action.actionType,
+      data = payload.action.data;
 
-    switch(action.actionType) {
-      case AppConstants.SET_CURRENT_QUESTION_INDEX:
-        data = action.data;
+    switch(actionType) {
+      case AppConstants.SET_CURRENT_QUESTION_INDEX :
+        
         setCurrentQuestionIndex(data)
         AppStore.emitChange();
         break;
 
-      case AppConstants.SET_QUESTIONS_ELAPSED:
+      case AppConstants.SET_QUESTIONS_ELAPSED :
         AppStore.emitChange();
         break;
 
-      case AppConstants.SET_ACTIVE_OPTION:
-        setActiveOption(action.data);
+      case AppConstants.SET_ACTIVE_OPTION :
+        setActiveOption(data);
         AppStore.emitChange();
         break;
 
-       case AppConstants.UPDATE_OPTION_STATUS:
-        updateOptionStatus(action.data);
+      case AppConstants.UPDATE_OPTION_STATUS :
+        updateOptionStatus(data);
         AppStore.emitChange();
-        break;   
+        break;
 
+      case AppConstants.UPDATE_ACTIVE_SCORE :
+        updateActiveScore(data);
+        break;
     }
 
     return true; // No errors. Needed by promise in Dispatcher.

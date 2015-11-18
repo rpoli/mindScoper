@@ -24,7 +24,6 @@ let AppViewActions = {
     });
 	},
 
-
   updateOptionStatus : function(cqIndex, result){
     AppDispatcher.handleViewAction({
       actionType: AppConstants.UPDATE_OPTION_STATUS,
@@ -33,9 +32,16 @@ let AppViewActions = {
         optionStatus : result        
       }
     });
+  },
+
+  updateActiveScore : function(cqIndex){
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.UPDATE_ACTIVE_SCORE,
+      data: {
+        cqIndex : cqIndex
+      }
+    });
   }
-
-
 };
 
 export default AppViewActions;

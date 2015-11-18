@@ -10,7 +10,7 @@ var mockJson = {
     scoreJson: [{
       serial: 1,
       value: 1000,
-      active: true
+      active: false
     }, {
       serial: 2,
       value: 2000,

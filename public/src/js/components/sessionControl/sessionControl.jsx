@@ -6,11 +6,11 @@ class SessionControl extends React.Component {
     super(props);
   }
   
-  setCurrentQuestionIndex(cqIndex, answered, nxtCtrl){
+  setCurrentQuestionIndex(cqIndex, answered, optionStatus, nxtCtrl){
     var cqIndex = Number(cqIndex);
     
     if(nxtCtrl) {
-      if(answered) {
+      if(answered && optionStatus) {
         if(cqIndex<14){
           AppViewActions.setCurrentQuestionIndex(cqIndex+1);
         }else{
@@ -32,7 +32,9 @@ class SessionControl extends React.Component {
   lockOption(cqIndex, selectedOption, solutionKey){
     if(selectedOption){
       if(selectedOption == solutionKey){
+        AppViewActions.updateActiveScore(cqIndex);
         AppViewActions.updateOptionStatus(cqIndex, true);
+
       }else{
         AppViewActions.updateOptionStatus(cqIndex, false);
       }
@@ -46,7 +48,7 @@ class SessionControl extends React.Component {
       <div className='row user-controls'>
         <div className='col-md-2 col-md-offset-3'>
           <button type="button" className="evn-btn btn btn-primary" 
-            onClick={this.setCurrentQuestionIndex.bind(this, this.props.cqIndex, this.props.answered, false)}>
+            onClick={this.setCurrentQuestionIndex.bind(this, this.props.cqIndex, this.props.answered, this.props.optionStatus, false)}>
             <span aria-hidden="true" className="glyphicon glyphicon-chevron-left prev-btn"></span>Previous
           </button>
         </div>
@@ -58,7 +60,7 @@ class SessionControl extends React.Component {
         </div>
         <div className='col-md-2'>
           <button type="button" className="evn-btn btn btn-primary"
-            onClick={this.setCurrentQuestionIndex.bind(this, this.props.cqIndex, this.props.answered, true)}>Next
+            onClick={this.setCurrentQuestionIndex.bind(this, this.props.cqIndex, this.props.answered, this.props.optionStatus, true)}>Next
             <span aria-hidden="true" className="glyphicon glyphicon-chevron-right next-btn"></span>
           </button>
         </div>
