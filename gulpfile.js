@@ -91,9 +91,6 @@ gulp.task("copysource",function() {
 
 
 gulp.task('sass', function() {  
-  sass(sassConfig[0].paths[1], sassConfig[0].compileOptions)
-   .pipe(gulp.dest(sassConfig[0].output))  
-
   return sass(sassConfig[0].paths[0], sassConfig[0].compileOptions)
     .on('error', sass.logError)
     .pipe(sourcemaps.write())
