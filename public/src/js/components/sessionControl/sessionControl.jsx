@@ -31,9 +31,9 @@ class SessionControl extends React.Component {
 
 
 
-  lockOption(cqIndex, selectedOption, selectedOptionIndex, solutionKey) {
+  lockOption(cqIndex, answered, selectedOption, selectedOptionIndex, solutionKey, solutionKeyIndex) {
 
-     if(selectedOption) {
+     if(selectedOption && !answered) {
     AppViewActions.updateAnimationStatus(cqIndex, selectedOptionIndex, true);
     
     setTimeout(function(){
@@ -49,6 +49,7 @@ class SessionControl extends React.Component {
         }else{
           AppViewActions.updateOptionFailed(cqIndex, selectedOptionIndex, true);
           AppViewActions.updateOptionFailOverlayStatus(true);
+          AppViewActions.updateSecondaryAnimationStatus(cqIndex, solutionKeyIndex, true);
           AppViewActions.updateOptionStatus(cqIndex, false);
 
         }
@@ -69,7 +70,12 @@ class SessionControl extends React.Component {
         </div>
         <div className='col-md-2'>
           <button type="button" className="btn btn-primary evn-btn" 
-            onClick={this.lockOption.bind(this,this.props.cqIndex, this.props.selectedOption,this.props.selectedOptionIndex, this.props.solutionKey)}>Lock
+            onClick={this.lockOption.bind(this,this.props.cqIndex, 
+              this.props.answered, 
+              this.props.selectedOption,
+              this.props.selectedOptionIndex, 
+              this.props.solutionKey, 
+              this.props.solutionKeyIndex)}>Lock
             <span className="glyphicon glyphicon-lock" aria-hidden="true"></span>
           </button>
         </div>

@@ -63,6 +63,17 @@ let AppViewActions = {
     });
   },
 
+  updateSecondaryAnimationStatus : function(cqIndex, solutionKeyIndex, secondaryAnimationStatus){
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.UPDATE_SECONDARY_ANIMATION_STATUS,
+      data: {
+        cqIndex : cqIndex,
+        solutionKeyIndex : solutionKeyIndex,
+        secondaryAnimationStatus : secondaryAnimationStatus
+      }
+    });
+  },
+
   updateOptionPassed : function (cqIndex,selectedOptionIndex, optionPassed ){
     AppDispatcher.handleViewAction({
       actionType: AppConstants.UPDATE_OPTION_PASSED,

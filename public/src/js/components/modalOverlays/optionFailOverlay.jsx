@@ -29,8 +29,7 @@ class OptionFailOverlay extends React.Component {
     this.setState({ showModal: true });
   }
 
-  render() {
-    
+  render() {    
     return (
         <Modal show={this.state.showModal} className={"option-success"} onHide={this.close.bind(this)} animation={false}>
           <Modal.Header closeButton={false}>

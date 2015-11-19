@@ -12,34 +12,20 @@ class Dashboard extends BaseReactComponent {
     super(props);
   }
 
-  getCurrentQuestion(qSerial, qSet) {
-    var qIndex = qSerial-1;
-    return qSet[qIndex];
-  }
-
-  getCurrentOptions(qSerial, qSet){
-    var qIndex = qSerial-1;
-    return qSet[qIndex].optionSet;
-  }
-
-  getSelectedOption (qSerial, qSet) {
-    var qIndex = qSerial-1;
-    return qSet[qIndex].optionSet; 
-  }
-
-  getSolutionKey(){
-    var qIndex = qSerial-1;
-    return qSet[qIndex].optionSet; 
-  }
-
-  getOptionStatus(qSerial, qSet){
-    var qIndex = qSerial-1;
-    return qSet[qIndex].optionStatus; 
-  }
-
-  getAnswerStatus(qSerial, qSet){
-    var qIndex = qSerial-1;
-    return qSet[qIndex].answerStatus; 
+  getSolutionKeyIndex (cqIndex, qSet) {
+   
+   var solutionKey = qSet[cqIndex].solutionKey;
+   
+    switch(solutionKey){
+      case "a" :
+        return 0;
+      case "b" :
+        return 1;
+      case "c" :
+        return 2;
+      case "d" :
+        return 3      
+    }
   }
 
   getValue(cqIndex, qSet, key) {
@@ -73,7 +59,8 @@ class Dashboard extends BaseReactComponent {
             cqIndex={this.state.cqIndex}
             currentQuestion={this.getValue(this.state.cqIndex, this.state.qSet, "currentQuestion")} 
             currentOptions={this.getValue(this.state.cqIndex, this.state.qSet, "currentOptions")}            
-            solutionKey={this.getValue(this.state.cqIndex, this.state.qSet, "solutionKey")}            
+            solutionKey={this.getValue(this.state.cqIndex, this.state.qSet, "solutionKey")}
+            solutionKeyIndex={this.getSolutionKeyIndex(this.state.cqIndex, this.state.qSet)}            
             selectedOption={this.getValue(this.state.cqIndex, this.state.qSet, "selectedOption")}
             selectedOptionIndex={this.getValue(this.state.cqIndex, this.state.qSet, "selectedOptionIndex")}                        
             optionStatus={this.getValue(this.state.cqIndex, this.state.qSet, "optionStatus")}

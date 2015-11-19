@@ -117,6 +117,7 @@ var mockJson = {
         text : 'a',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -124,6 +125,7 @@ var mockJson = {
         text : 'b',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -131,6 +133,7 @@ var mockJson = {
         text : 'c',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -138,6 +141,7 @@ var mockJson = {
         text : 'd',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       }
@@ -156,6 +160,7 @@ var mockJson = {
         text : 'a',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -163,6 +168,7 @@ var mockJson = {
         text : 'b',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -170,6 +176,7 @@ var mockJson = {
         text : 'c',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -177,6 +184,7 @@ var mockJson = {
         text : 'd',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       }
@@ -195,6 +203,7 @@ var mockJson = {
         text : 'a',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -202,6 +211,7 @@ var mockJson = {
         text : 'b',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -209,6 +219,7 @@ var mockJson = {
         text : 'c',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -216,6 +227,7 @@ var mockJson = {
         text : 'd',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       }
@@ -234,6 +246,7 @@ var mockJson = {
         text : 'a',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -241,6 +254,7 @@ var mockJson = {
         text : 'b',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -248,6 +262,7 @@ var mockJson = {
         text : 'c',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -255,6 +270,7 @@ var mockJson = {
         text : 'd',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       }
@@ -273,6 +289,7 @@ var mockJson = {
         text : 'a',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -280,6 +297,7 @@ var mockJson = {
         text : 'b',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -287,6 +305,7 @@ var mockJson = {
         text : 'c',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -294,7 +313,7 @@ var mockJson = {
         text : 'd',
         selected: false,
         animationStatus : false,
-        optionPassed : false,
+        secondaryAnimationStatus : false,
         optionFailed : false
       }
     ],
@@ -312,6 +331,7 @@ var mockJson = {
         text : 'a',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -319,6 +339,7 @@ var mockJson = {
         text : 'b',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -326,6 +347,7 @@ var mockJson = {
         text : 'c',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -333,6 +355,7 @@ var mockJson = {
         text : 'd',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       }
@@ -351,6 +374,7 @@ var mockJson = {
         text : 'a',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -358,6 +382,7 @@ var mockJson = {
         text : 'b',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -365,6 +390,7 @@ var mockJson = {
         text : 'c',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -372,6 +398,7 @@ var mockJson = {
         text : 'd',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       }
@@ -390,6 +417,7 @@ var mockJson = {
         text : 'a',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -397,6 +425,7 @@ var mockJson = {
         text : 'b',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -404,6 +433,7 @@ var mockJson = {
         text : 'c',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -411,6 +441,7 @@ var mockJson = {
         text : 'd',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       }
@@ -429,6 +460,7 @@ var mockJson = {
         text : 'a',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -436,6 +468,7 @@ var mockJson = {
         text : 'b',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -443,13 +476,14 @@ var mockJson = {
         text : 'c',
         selected: false,
         animationStatus : false,
-        optionPassed : false,
+        secondaryAnimationStatus : false,
         optionFailed : false
       },{
         title : 'd',
         text : 'd',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       }
@@ -468,6 +502,7 @@ var mockJson = {
         text : 'a',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -475,6 +510,7 @@ var mockJson = {
         text : 'b',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -482,6 +518,7 @@ var mockJson = {
         text : 'c',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -489,6 +526,7 @@ var mockJson = {
         text : 'd',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       }
@@ -507,6 +545,7 @@ var mockJson = {
         text : 'a',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -514,6 +553,7 @@ var mockJson = {
         text : 'b',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
@@ -521,13 +561,15 @@ var mockJson = {
         text : 'c',
         selected: false,
         animationStatus : false,
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
         title : 'd',
         text : 'd',
         selected: false,
-        animationStatus : false,
+        animationStatus : false,        
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       }
@@ -545,28 +587,32 @@ var mockJson = {
         title : 'a',
         text : 'a',
         selected: false,
-        animationStatus : false,
+        animationStatus : false,        
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
         title : 'b',
         text : 'b',
         selected: false,
-        animationStatus : false,
+        animationStatus : false,        
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
         title : 'c',
         text : 'c',
         selected: false,
-        animationStatus : false,
+        animationStatus : false,        
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
         title : 'd',
         text : 'd',
         selected: false,
-        animationStatus : false,
+        animationStatus : false,        
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       }
@@ -584,29 +630,32 @@ var mockJson = {
         title : 'a',
         text : 'a',
         selected: false,
-        animationStatus : false,
+        animationStatus : false,        
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
         title : 'b',
         text : 'b',
         selected: false,
-        animationStatus : false,
+        animationStatus : false,        
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
         title : 'c',
         text : 'c',
         selected: false,
-        animationStatus : false,
+        animationStatus : false,        
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
         title : 'd',
         text : 'd',
         selected: false,
-        animationStatus : false,
-        optionPassed : false,
+        animationStatus : false,        
+        secondaryAnimationStatus : false,
         optionFailed : false
       }
     ],
@@ -623,28 +672,32 @@ var mockJson = {
         title : 'a',
         text : 'a',
         selected: false,
-        animationStatus : false,
+        animationStatus : false,        
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
         title : 'b',
         text : 'b',
         selected: false,
-        animationStatus : false,
+        animationStatus : false,        
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
         title : 'c',
         text : 'c',
         selected: false,
-        animationStatus : false,
+        animationStatus : false,        
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       },{
         title : 'd',
         text : 'd',
         selected: false,
-        animationStatus : false,
+        animationStatus : false,        
+        secondaryAnimationStatus : false,
         optionPassed : false,
         optionFailed : false
       }

@@ -67,6 +67,10 @@ function updateAnimationStatus (data) {
   appData.qSet[data.cqIndex].optionSet[data.selectedOptionIndex].animationStatus = data.animationStatus;
 }
 
+function updateSecondaryAnimationStatus(data) {
+  appData.qSet[data.cqIndex].optionSet[data.solutionKeyIndex].secondaryAnimationStatus = data.secondaryAnimationStatus;
+}
+
 function updateOptionPassed (data) {
  appData.qSet[data.cqIndex].optionSet[data.selectedOptionIndex].optionPassed = data.optionPassed; 
 }
@@ -156,7 +160,15 @@ var AppStore = assign({}, EventEmitter.prototype, {
 
       case AppConstants.UPDATE_OPTION_FAIL_OVERLAY_STATUS :
         updateOptionFailOverlayStatus(data);
+        break;         
+
+      case AppConstants.UPDATE_SECONDARY_ANIMATION_STATUS :
+        updateSecondaryAnimationStatus(data);
         break;          
+    
+
+
+
     }
 
     return true; // No errors. Needed by promise in Dispatcher.
