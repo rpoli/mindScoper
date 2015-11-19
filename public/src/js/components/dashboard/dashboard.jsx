@@ -3,6 +3,8 @@ import BaseReactComponent from 'components/base/baseReactComponent';
 import ScoreBoard from 'components/scoreBoard/scoreBoard';
 import Score from 'components/score/score';
 import QuestionBlock from 'components/questionBlock/questionBlock';
+import OptionSuccessOverlay from 'components/modalOverlays/optionSuccessOverlay';
+import OptionFailOverlay from 'components/modalOverlays/optionFailOverlay';
 
 class Dashboard extends BaseReactComponent {
   
@@ -80,6 +82,8 @@ class Dashboard extends BaseReactComponent {
           <ScoreBoard
             scoreData={this.state.score.scoreJson}            
           />
+          <OptionSuccessOverlay optionSuccessOverlayStatus={this.state.optionSuccessOverlayStatus} />
+          <OptionFailOverlay optionFailOverlayStatus={this.state.optionFailOverlayStatus} />
         </div>
       </div> 
     );

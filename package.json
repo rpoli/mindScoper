@@ -21,6 +21,7 @@
     "morgan": "~1.5.3",
     "object-assign": "^1.0.0",
     "react": "^0.14.2",
+    "react-bootstrap": "^0.28.1",
     "serve-favicon": "~2.2.1",
     "strip-debug": "^1.1.1"
   },

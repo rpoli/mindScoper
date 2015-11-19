@@ -20,7 +20,9 @@ var appData = {
   },
   qSet: dataJson.qSet,
   cqIndex: 0,
-  qElapsed: 0
+  qElapsed: 0,
+  optionSuccessOverlayStatus : false,
+  optionFailOverlayStatus : false
 }; 
 
 function setCurrentQuestionIndex(data) { 
@@ -34,7 +36,7 @@ function setQuestionsElapsed(data) {
 function setActiveOption (data) {
   
   for(var i=0; i<appData.qSet[data.cqIndex].optionSet.length; i++){
-      appData.qSet[data.cqIndex].optionSet[i].selected = false;    
+    appData.qSet[data.cqIndex].optionSet[i].selected = false;    
   }
 
   appData.qSet[data.cqIndex].optionSet[data.index].selected = true;  
@@ -62,9 +64,6 @@ function updateTotalScore (data) {
 }
 
 function updateAnimationStatus (data) {
-
-  console.log(data);
-
   appData.qSet[data.cqIndex].optionSet[data.selectedOptionIndex].animationStatus = data.animationStatus;
 }
 
@@ -76,6 +75,13 @@ function updateOptionFailed(data){
   appData.qSet[data.cqIndex].optionSet[data.selectedOptionIndex].optionFailed = data.optionFailed; 
 }
 
+function updateOptionSuccessOverlayStatus (data) {
+  appData.optionSuccessOverlayStatus = data.optionSuccessOverlayStatus;
+}
+
+function updateOptionFailOverlayStatus (data) {
+  appData.optionFailOverlayStatus = data.optionFailOverlayStatus;
+}
 
 var AppStore = assign({}, EventEmitter.prototype, {
   
@@ -143,7 +149,14 @@ var AppStore = assign({}, EventEmitter.prototype, {
       case AppConstants.UPDATE_OPTION_FAILED :
         updateOptionFailed(data);        
         break;
-          
+
+      case AppConstants.UPDATE_OPTION_SUCCESS_OVERLAY_STATUS :
+        updateOptionSuccessOverlayStatus(data);
+        break;
+
+      case AppConstants.UPDATE_OPTION_FAIL_OVERLAY_STATUS :
+        updateOptionFailOverlayStatus(data);
+        break;          
     }
 
     return true; // No errors. Needed by promise in Dispatcher.

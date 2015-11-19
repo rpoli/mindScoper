@@ -1,6 +1,7 @@
 import React from 'react';
 import OptionBlock from 'components/optionBlock/optionBlock';
 import SessionControl from 'components/sessionControl/sessionControl';
+
 class QuestionBlock extends React.Component {
   
   constructor(props) {
@@ -39,11 +40,11 @@ class QuestionBlock extends React.Component {
             })
           }
         </div>
-        <SessionControl 
-          cqIndex={this.props.cqIndex} 
-          solutionKey={this.props.solutionKey} 
+        <SessionControl
+          cqIndex={this.props.cqIndex}
+          solutionKey={this.props.solutionKey}
           selectedOption={this.props.selectedOption}
-          selectedOptionIndex={this.props.selectedOptionIndex}          
+          selectedOptionIndex={this.props.selectedOptionIndex}
           answered={this.props.answered}
           optionStatus={this.props.optionStatus}
         />

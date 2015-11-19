@@ -86,6 +86,24 @@ let AppViewActions = {
         optionFailed : optionFailed
       }
     }); 
+  },
+
+  updateOptionSuccessOverlayStatus : function (optionSuccessOverlayStatus){
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.UPDATE_OPTION_SUCCESS_OVERLAY_STATUS,
+      data: {        
+        optionSuccessOverlayStatus : optionSuccessOverlayStatus        
+      }
+    }); 
+  },
+
+  updateOptionFailOverlayStatus : function (optionFailOverlayStatus){
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.UPDATE_OPTION_FAIL_OVERLAY_STATUS,
+      data: {        
+        optionFailOverlayStatus : optionFailOverlayStatus        
+      }
+    }); 
   }
 };
 

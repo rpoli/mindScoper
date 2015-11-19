@@ -6,7 +6,7 @@ class SessionControl extends React.Component {
     super(props);
   }
   
-  setCurrentQuestionIndex(cqIndex, answered, optionStatus, nxtCtrl){
+  setCurrentQuestionIndex (cqIndex, answered, optionStatus, nxtCtrl) {
     var cqIndex = Number(cqIndex);
     
     if(nxtCtrl) {
@@ -43,10 +43,12 @@ class SessionControl extends React.Component {
           AppViewActions.updateOptionPassed(cqIndex, selectedOptionIndex, true)        
           AppViewActions.updateActiveScore(cqIndex);
           AppViewActions.updateTotalScore( cqIndex );
+          AppViewActions.updateOptionSuccessOverlayStatus(true);
           AppViewActions.updateOptionStatus(cqIndex, true);
           
         }else{
-          AppViewActions.updateOptionFailed(cqIndex, selectedOptionIndex, true)
+          AppViewActions.updateOptionFailed(cqIndex, selectedOptionIndex, true);
+          AppViewActions.updateOptionFailOverlayStatus(true);
           AppViewActions.updateOptionStatus(cqIndex, false);
 
         }
@@ -54,7 +56,6 @@ class SessionControl extends React.Component {
       }else{
         console.log("please choose option");
       }
- 
   }
 
   render() {
