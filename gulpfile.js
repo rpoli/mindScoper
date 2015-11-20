@@ -25,7 +25,8 @@ var gulp = require('gulp'),
   babelify = require('babelify');
   open = require('gulp-open'),
   gls = require('gulp-live-server'),
-  watchify = require('watchify');
+  watchify = require('watchify'),
+  csv2json = require('gulp-csv2json');
 
 var env = process.env.NODE_ENV || 'development',
   gConfig = require("./config/gulpConfig_"+env);
@@ -45,6 +46,15 @@ var getStamp = function() {
   var stampFullDate = stampYear + stampMonth + stampDay + stampSeconds;
   return stampFullDate;
 };
+
+
+
+
+
+
+
+
+
 
 
 var sassConfig = [{
@@ -100,6 +110,15 @@ gulp.task('sass', function() {
     }))
    .pipe(gulp.dest(sassConfig[0].output))   
 });
+
+gulp.task('json', function () {
+var csvParseOptions = {}; //based on options specified here : http://csv.adaltas.com/parse/
+    gulp.src('./data/csv/**/*.csv')
+        .pipe(csv2json(csvParseOptions))
+        .pipe(rename({extname: '.json'}))
+        .pipe(gulp.dest('./data/json/'));
+});
+
 
 gulp.task('server', function() {
     var serverPromise = gServer.start();
