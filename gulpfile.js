@@ -47,16 +47,6 @@ var getStamp = function() {
   return stampFullDate;
 };
 
-
-
-
-
-
-
-
-
-
-
 var sassConfig = [{
   watch: 'public/src/scss/**/*.scss',
   paths: ['public/src/scss/app-main.scss', 'public/src/scss/webfonts/**.scss'],
