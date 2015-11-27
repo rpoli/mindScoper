@@ -93,6 +93,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task("copysource",function() {
+  console.log("build started");
   gulp.src(filePaths.images)
     .pipe(gulp.dest(filePaths.imagesTarget));
   gulp.src(filePaths.fonts)
